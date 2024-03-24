@@ -4,17 +4,17 @@ using UnityEngine;
 
 namespace Bullet
 {
-    public sealed class BulletsController : MonoBehaviour
+    public sealed class BulletsController : MonoBehaviour, IStartListener
     {
         [SerializeField] private Transform _poolContainer;
-        [SerializeField] private global::Bullet.Bullet _prefab;
+        [SerializeField] private Bullet _prefab;
         [SerializeField] private Transform _worldTransform;
 
-        private Pool<global::Bullet.Bullet> _bulletPool;
+        private Pool<Bullet> _bulletPool;
 
-        private void Start()
+        public void OnStart()
         {
-            _bulletPool = new Pool<global::Bullet.Bullet>(_prefab, _poolContainer, _worldTransform);
+            _bulletPool = new Pool<Bullet>(_prefab, _poolContainer, _worldTransform);
         }
 
         public void Shoot(Vector2 shootPoint, Vector2 targetPoint, BulletConfig bulletConfig)
@@ -28,7 +28,7 @@ namespace Bullet
             bullet.OnCollisionEntered += OnCollisionEntered;
         }
 
-        private void OnCollisionEntered(global::Bullet.Bullet bullet, GameObject collisionObject)
+        private void OnCollisionEntered(Bullet bullet, GameObject collisionObject)
         {
             if (collisionObject.TryGetComponent<IDamageable>(out var damageable))
             {

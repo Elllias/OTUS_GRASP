@@ -1,9 +1,10 @@
 using System;
+using Interface;
 using UnityEngine;
 
 namespace Component
 {
-    public sealed class HitPointsComponent : MonoBehaviour
+    public sealed class HitPointsComponent : MonoBehaviour, IStartListener
     {
         public event Action HitPointsGone;
 
@@ -11,7 +12,7 @@ namespace Component
 
         private int _hitPoints;
 
-        private void Start()
+        public void OnStart()
         {
             Reset();
         }

@@ -3,11 +3,12 @@ using System.Collections;
 using Bullet;
 using Character;
 using Common;
+using Interface;
 using UnityEngine;
 
 namespace Enemy
 {
-    public sealed class EnemiesController : MonoBehaviour
+    public sealed class EnemiesController : MonoBehaviour, IStartListener
     {
         [SerializeField] private BulletsController _bulletController;
         [SerializeField] private Transform _targetTransform;
@@ -21,7 +22,7 @@ namespace Enemy
         
         private Pool<Enemy> _enemyPool;
 
-        private void Start()
+        public void OnStart()
         {
             _enemyPool = new Pool<Enemy>(_enemyPrefab, _poolTransform, _worldTransform);
 

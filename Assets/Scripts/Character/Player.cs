@@ -6,24 +6,32 @@ using UnityEngine;
 
 namespace Character
 {
-    public sealed class Player : MonoBehaviour, IDamageable
+    public sealed class Player : MonoBehaviour, IDamageable, IPauseListener, IResumeListener, IStartListener, IFinishListener
     {
-        public event Action Killed;
-
         [SerializeField] private InputHandler _inputHandler;
 
         [SerializeField] private HitPointsComponent _hitPointsComponent;
         [SerializeField] private MoveComponent _moveComponent;
         [SerializeField] private ShootingComponent _shootingComponent;
 
-        private void OnEnable()
+        public void OnStart()
+        {
+            OnResume();
+        }
+
+        public void OnFinish()
+        {
+            OnPause();
+        }
+        
+        public void OnResume()
         {
             _inputHandler.DirectionButtonPressed += _moveComponent.Move;
             _inputHandler.ShootingButtonPressed += _shootingComponent.Shoot;
             _hitPointsComponent.HitPointsGone += OnHitPointsGone;
         }
 
-        private void OnDisable()
+        public void OnPause()
         {
             _inputHandler.DirectionButtonPressed -= _moveComponent.Move;
             _inputHandler.ShootingButtonPressed -= _shootingComponent.Shoot;
@@ -37,7 +45,7 @@ namespace Character
 
         private void OnHitPointsGone()
         {
-            Killed?.Invoke();
+            GameManager.Instance.FinishGame();
         }
     }
 }
