@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Bullet
 {
-    public sealed class Bullet : MonoBehaviour
+    public class Bullet : MonoBehaviour
     {
         public event Action<Bullet, GameObject> OnCollisionEntered;
 

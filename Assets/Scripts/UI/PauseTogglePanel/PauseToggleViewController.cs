@@ -3,6 +3,7 @@ using Core;
 using Enum;
 using Interface;
 using UnityEngine;
+using VContainer;
 
 namespace UI.PauseTogglePanel
 {
@@ -13,6 +14,14 @@ namespace UI.PauseTogglePanel
         
         [SerializeField] private PauseToggleView _pauseToggleView;
 
+        private GameManager _gameManager;
+
+        [Inject]
+        private void Construct(GameManager gameManager)
+        {
+            _gameManager = gameManager;
+        }
+        
         private void Awake()
         {
             _pauseToggleView.ToggleButtonClicked += OnToggleButtonClicked;
@@ -33,16 +42,16 @@ namespace UI.PauseTogglePanel
 
         private void OnToggleButtonClicked()
         {
-            var gameState = GameManager.Instance.GetGameState();
+            var gameState = _gameManager.GetGameState();
             
             if (gameState == EGameState.Playing)
             {
-                GameManager.Instance.PauseGame();
+                _gameManager.PauseGame();
                 _pauseToggleView.SetText(RESUME_TEXT);
             }
             else if (gameState == EGameState.Stopping)
             {
-                GameManager.Instance.ResumeGame();
+                _gameManager.ResumeGame();
                 _pauseToggleView.SetText(PAUSE_TEXT);
             }
         }

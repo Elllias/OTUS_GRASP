@@ -2,6 +2,7 @@
 using Core;
 using Interface;
 using UnityEngine;
+using VContainer;
 
 namespace UI.GameStartPanel
 {
@@ -11,6 +12,14 @@ namespace UI.GameStartPanel
 
         [SerializeField] private GameStartView _gameStartView;
 
+        private GameManager _gameManager;
+
+        [Inject]
+        private void Construct(GameManager gameManager)
+        {
+            _gameManager = gameManager;
+        }
+        
         private void Awake()
         {
             _gameStartView.StartButtonClicked += OnStartButtonClicked;
@@ -41,7 +50,7 @@ namespace UI.GameStartPanel
             }
 
             _gameStartView.Hide();
-            GameManager.Instance.StartGame();
+            _gameManager.StartGame();
         }
     }
 }

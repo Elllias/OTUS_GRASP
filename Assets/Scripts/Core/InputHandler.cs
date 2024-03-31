@@ -1,10 +1,11 @@
 using System;
 using Interface;
 using UnityEngine;
+using VContainer.Unity;
 
 namespace Core
 {
-    public sealed class InputHandler : MonoBehaviour, IUpdateListener
+    public class InputHandler : ITickable
     {
         private static readonly Vector2 _leftDirection = new (-1f, 0f);
         private static readonly Vector2 _rightDirection = new (1f, 0f);
@@ -12,7 +13,7 @@ namespace Core
         public event Action<Vector2> DirectionButtonPressed;
         public event Action ShootingButtonPressed;
 
-        public void OnUpdate()
+        public void Tick()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {

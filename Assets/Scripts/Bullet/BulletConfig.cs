@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Bullet
 {
     [CreateAssetMenu(fileName = "BulletConfig", menuName = "Bullets/New BulletConfig")]
-    public sealed class BulletConfig : ScriptableObject
+    public class BulletConfig : ScriptableObject
     {
         public EPhysicsLayer PhysicsLayer;
         public Color Color;

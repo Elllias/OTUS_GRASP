@@ -1,10 +1,11 @@
 using Common;
 using Interface;
 using UnityEngine;
+using VContainer.Unity;
 
 namespace Bullet
 {
-    public sealed class BulletsController : MonoBehaviour, IStartListener
+    public class BulletsController : MonoBehaviour, IStartable
     {
         [SerializeField] private Transform _poolContainer;
         [SerializeField] private Bullet _prefab;
@@ -12,7 +13,7 @@ namespace Bullet
 
         private Pool<Bullet> _bulletPool;
 
-        public void OnStart()
+        public void Start()
         {
             _bulletPool = new Pool<Bullet>(_prefab, _poolContainer, _worldTransform);
         }

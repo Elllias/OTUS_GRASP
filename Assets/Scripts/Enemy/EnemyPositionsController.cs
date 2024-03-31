@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public sealed class EnemyPositionsController : MonoBehaviour
+    public class EnemyPositionsController : MonoBehaviour
     {
         [SerializeField] private List<Transform> _spawnPositions;
         [SerializeField] private List<Position> _attackPositions;

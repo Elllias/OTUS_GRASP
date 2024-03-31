@@ -6,7 +6,7 @@ using Vector2 = UnityEngine.Vector2;
 
 namespace Component
 {
-    public sealed class MoveComponent : MonoBehaviour
+    public class MoveComponent : MonoBehaviour
     {
         public event Action Moved;
         

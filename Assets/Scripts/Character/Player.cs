@@ -3,16 +3,25 @@ using Component;
 using Core;
 using Interface;
 using UnityEngine;
+using VContainer;
 
 namespace Character
 {
-    public sealed class Player : MonoBehaviour, IDamageable, IPauseListener, IResumeListener, IStartListener, IFinishListener
+    public class Player : MonoBehaviour, IDamageable, IPauseListener, IResumeListener, IStartListener, IFinishListener
     {
-        [SerializeField] private InputHandler _inputHandler;
-
         [SerializeField] private HitPointsComponent _hitPointsComponent;
         [SerializeField] private MoveComponent _moveComponent;
         [SerializeField] private ShootingComponent _shootingComponent;
+
+        private InputHandler _inputHandler;
+        private GameManager _gameManager;
+
+        [Inject]
+        private void Construct(InputHandler inputHandler, GameManager gameManager)
+        {
+            _inputHandler = inputHandler;
+            _gameManager = gameManager;
+        }
 
         public void OnStart()
         {
@@ -45,7 +54,7 @@ namespace Character
 
         private void OnHitPointsGone()
         {
-            GameManager.Instance.FinishGame();
+            _gameManager.FinishGame();
         }
     }
 }

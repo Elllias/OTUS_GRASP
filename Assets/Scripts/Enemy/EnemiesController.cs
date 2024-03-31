@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public sealed class EnemiesController : MonoBehaviour, IStartListener
+    public class EnemiesController : MonoBehaviour, IStartListener
     {
         [SerializeField] private BulletsController _bulletController;
         [SerializeField] private Transform _targetTransform;

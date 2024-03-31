@@ -5,46 +5,26 @@ using Character;
 using Enum;
 using Interface;
 using UnityEngine;
+using VContainer.Unity;
+using Object = UnityEngine.Object;
 
 namespace Core
 {
-    public sealed class GameManager : MonoBehaviour
+    public class GameManager : IStartable
     {
-        public static GameManager Instance { get; private set; }
-        
         private IStartListener[] _startListeners;
-        private IUpdateListener[] _updateListeners;
         private IPauseListener[] _pauseListeners;
         private IResumeListener[] _resumeListeners;
         private IFinishListener[] _finishListeners;
         
         private EGameState _gameState;
-
-        private void Awake()
+        
+        public void Start()
         {
-            if (Instance != null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            
-            Instance = this;
-            
-            _startListeners = FindObjectsOfType<MonoBehaviour>(true).OfType<IStartListener>().ToArray();
-            _updateListeners = FindObjectsOfType<MonoBehaviour>(true).OfType<IUpdateListener>().ToArray();
-            _pauseListeners = FindObjectsOfType<MonoBehaviour>(true).OfType<IPauseListener>().ToArray();
-            _resumeListeners = FindObjectsOfType<MonoBehaviour>(true).OfType<IResumeListener>().ToArray();
-            _finishListeners = FindObjectsOfType<MonoBehaviour>(true).OfType<IFinishListener>().ToArray();
-        }
-
-        public void Update()
-        {
-            if (_gameState != EGameState.Playing) return;
-            
-            foreach (var listener in _updateListeners)
-            {
-                listener.OnUpdate();
-            }
+            _startListeners = Object.FindObjectsOfType<MonoBehaviour>(true).OfType<IStartListener>().ToArray();
+            _pauseListeners = Object.FindObjectsOfType<MonoBehaviour>(true).OfType<IPauseListener>().ToArray();
+            _resumeListeners = Object.FindObjectsOfType<MonoBehaviour>(true).OfType<IResumeListener>().ToArray();
+            _finishListeners = Object.FindObjectsOfType<MonoBehaviour>(true).OfType<IFinishListener>().ToArray();
         }
         
         public void StartGame()

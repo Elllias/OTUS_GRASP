@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Component
 {
-    public sealed class HitPointsComponent : MonoBehaviour, IStartListener
+    public class HitPointsComponent : MonoBehaviour, IStartListener
     {
         public event Action HitPointsGone;
 
