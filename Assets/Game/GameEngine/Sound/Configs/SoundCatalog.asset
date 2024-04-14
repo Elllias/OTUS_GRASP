@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990e99dc6bc641a6bbcbdfa752a21b8d, type: 3}
+  m_Name: SoundCatalog
+  m_EditorClassIdentifier: 
+  sounds:
+  - id: Chop
+    clip: {fileID: 8300000, guid: 0a25df2311b5f4bd3ad50c91c0332d78, type: 3}
+  - id: Step
+    clip: {fileID: 8300000, guid: 4be8b797e77fb44d1b5634962a21c565, type: 3}
+  - id: Mine
+    clip: {fileID: 8300000, guid: 8a1e08faeb86c42afa6f6932701ab33c, type: 3}
+  - id: Hit
+    clip: {fileID: 8300000, guid: 12ac6d229d5834e27a7a554d94d30b87, type: 3}
+  - id: HumanDeath
+    clip: {fileID: 8300000, guid: 3edd68bfd5e79450b9b08b81db78af84, type: 3}
+  - id: OrcDeath
+    clip: {fileID: 8300000, guid: 6e5bb0c12a9304eb5a46eddf95ce1a81, type: 3}

@@ -1,0 +1,274 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2dbdab98e2489a49a3ef6dfe564537f, type: 3}
+  m_Name: LocalizationTextConfig
+  m_EditorClassIdentifier: 
+  uri: https://docs.google.com/spreadsheets/d/1Fs0jR_l8l35uqd4lLkUGhDeByTY5aFvORa0ufJZSTCI
+  pageSeparator: '|'
+  spreadsheet:
+    pages:
+    - name: Common
+      entities:
+      - key: UPGRADE
+        translations:
+        - language: 10
+          value: UPGRADE
+        - language: 30
+          value: "\u0423\u041B\u0423\u0427\u0428\u0418\u0422\u042C"
+      - key: MAX
+        translations:
+        - language: 10
+          value: MAX
+        - language: 30
+          value: "\u041C\u0410\u041A\u0421"
+      - key: SETTINGS
+        translations:
+        - language: 10
+          value: SETTINGS
+        - language: 30
+          value: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+      - key: SOUND
+        translations:
+        - language: 10
+          value: SOUND
+        - language: 30
+          value: "\u0417\u0412\u0423\u041A"
+      - key: MUSIC
+        translations:
+        - language: 10
+          value: MUSIC
+        - language: 30
+          value: "\u041C\u0423\u0417\u042B\u041A\u0410"
+      - key: GRAPHICS
+        translations:
+        - language: 10
+          value: GRAPHICS
+        - language: 30
+          value: "\u0413\u0420\u0410\u0424\u0418\u041A\u0410"
+      - key: LANGUAGE
+        translations:
+        - language: 10
+          value: LANGUAGE
+        - language: 30
+          value: "\u042F\u0417\u042B\u041A"
+      - key: GET
+        translations:
+        - language: 10
+          value: GET
+        - language: 30
+          value: "\u041F\u041E\u041B\u0423\u0427\u0418\u0422\u042C"
+      - key: PROCESSING
+        translations:
+        - language: 10
+          value: PROCESSING
+        - language: 30
+          value: "\u0412 \u041F\u0420\u041E\u0426\u0415\u0421\u0421\u0415"
+      - key: LEVEL
+        translations:
+        - language: 10
+          value: Level
+        - language: 30
+          value: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C"
+      - key: VALUE
+        translations:
+        - language: 10
+          value: Value
+        - language: 30
+          value: "\u0417\u043D\u0430\u0447\u0435\u043D\u0438\u0435"
+      - key: WORKBENCH
+        translations:
+        - language: 10
+          value: WORKBENCH
+        - language: 30
+          value: "\u0412\u0415\u0420\u0421\u0422\u0410\u041A"
+      - key: INVENTORY
+        translations:
+        - language: 10
+          value: INVENTORY
+        - language: 30
+          value: "\u0418\u041D\u0412\u0415\u041D\u0422\u0410\u0420\u042C"
+      - key: CONSUME
+        translations:
+        - language: 10
+          value: CONSUME
+        - language: 30
+          value: "\u041F\u0420\u0418\u041C\u0415\u041D\u0418\u0422\u042C"
+      - key: CRAFT
+        translations:
+        - language: 10
+          value: CRAFT
+        - language: 30
+          value: "\u0421\u041E\u0417\u0414\u0410\u0422\u042C"
+      - key: MARKET
+        translations:
+        - language: 10
+          value: MARKET
+        - language: 30
+          value: "\u041C\u0410\u0413\u0410\u0417\u0418\u041D"
+      - key: BUY
+        translations:
+        - language: 10
+          value: BUY
+        - language: 30
+          value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+    - name: HeroUpgrades
+      entities:
+      - key: TITLE
+        translations:
+        - language: 10
+          value: HERO UPGRADES
+        - language: 30
+          value: "\u0410\u041F\u0413\u0420\u0415\u0419\u0414\u042B \u0413\u0415\u0420\u041E\u042F"
+      - key: DAMAGE
+        translations:
+        - language: 10
+          value: Damage
+        - language: 30
+          value: "\u0423\u0440\u043E\u043D"
+      - key: HIT_POINTS
+        translations:
+        - language: 10
+          value: Hit Points
+        - language: 30
+          value: "\u0417\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      - key: SPEED
+        translations:
+        - language: 10
+          value: Speed
+        - language: 30
+          value: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
+    - name: Missions
+      entities:
+      - key: TITLE
+        translations:
+        - language: 10
+          value: MISSIONS
+        - language: 30
+          value: "\u041C\u0418\u0421\u0421\u0418\u0418"
+      - key: EASY
+        translations:
+        - language: 10
+          value: EASY
+        - language: 30
+          value: "\u041B\u0415\u0413\u041A\u0410\u042F"
+      - key: NORMAL
+        translations:
+        - language: 10
+          value: NORMAL
+        - language: 30
+          value: "\u0421\u0420\u0415\u0414\u041D\u042F\u042F"
+      - key: HARD
+        translations:
+        - language: 10
+          value: HARD
+        - language: 30
+          value: "\u0421\u041B\u041E\u0416\u041D\u0410\u042F"
+      - key: COLLECT_LUMBER
+        translations:
+        - language: 10
+          value: Collect Lumber
+        - language: 30
+          value: "\u0421\u043E\u0431\u0440\u0430\u0442\u044C \u0414\u043E\u0441\u043A\u0438"
+      - key: COLLECT_WOOD
+        translations:
+        - language: 10
+          value: Collect Wood
+        - language: 30
+          value: "\u0421\u043E\u0431\u0440\u0430\u0442\u044C \u0414\u0435\u0440\u0435\u0432\u043E"
+      - key: COLLECT_STONE
+        translations:
+        - language: 10
+          value: Collect Stone
+        - language: 30
+          value: "\u0421\u043E\u0431\u0440\u0430\u0442\u044C \u041A\u0430\u043C\u0435\u043D\u044C"
+      - key: EARN_MONEY
+        translations:
+        - language: 10
+          value: Earn Money
+        - language: 30
+          value: "\u0417\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C \u0414\u0435\u043D\u044C\u0433\u0438"
+      - key: KILL_ENEMY
+        translations:
+        - language: 10
+          value: Destroy Enemy
+        - language: 30
+          value: "\u0423\u043D\u0438\u0447\u0442\u043E\u0436\u0438\u0442\u044C \u0412\u0440\u0430\u0433\u0430"
+    - name: Tutorial
+      entities:
+      - key: WELCOME
+        translations:
+        - language: 10
+          value: WELCOME
+        - language: 30
+          value: "\u041F\u0420\u0418\u0412\u0415\u0422\u0421\u0422\u0412\u0423\u0415\u041C"
+      - key: INTRO
+        translations:
+        - language: 10
+          value: WELCOME TO THE AWERSOME GAME! HERE YOU CAN BECOME THE BEST KING
+            IN THE WORLD!
+        - language: 30
+          value: "\u0414\u041E\u0411\u0420\u041E \u041F\u041E\u0416\u0410\u041B\u041E\u0412\u0410\u0422\u042C
+            \u0412 RPG \u0418\u0413\u0420\u0423! \u0417\u0414\u0415\u0421\u042C \u0412\u042B
+            \u0421\u0422\u0410\u041D\u0415\u0422\u0415 \u041B\u0423\u0427\u0428\u0418\u041C
+            \u041A\u041E\u0420\u041E\u041B\u0415\u041C \u0412\u041E \u0412\u0421\u0415\u041C
+            \u041C\u0418\u0420\u0415!"
+      - key: MINE_STONE
+        translations:
+        - language: 10
+          value: MINE STONE
+        - language: 30
+          value: "\u0414\u041E\u0411\u042B\u0422\u042C \u041A\u0410\u041C\u0415\u041D\u042C"
+      - key: SELL_STONE
+        translations:
+        - language: 10
+          value: SELL STONE
+        - language: 30
+          value: "\u041F\u0420\u041E\u0414\u0410\u0422\u042C \u041A\u0410\u041C\u0415\u041D\u042C"
+      - key: DO_UPGRADE
+        translations:
+        - language: 10
+          value: DO UPGRADE
+        - language: 30
+          value: "\u0421\u0414\u0415\u041B\u0410\u0422\u042C \u0410\u041F\u0413\u0420\u0415\u0419\u0414"
+      - key: KILL_ENEMY
+        translations:
+        - language: 10
+          value: KILL ENEMY
+        - language: 30
+          value: "\u0423\u041D\u0418\u0427\u0422\u041E\u0416\u0418\u0422\u042C \u0426\u0415\u041B\u042C"
+      - key: CONGRATULATIONS
+        translations:
+        - language: 10
+          value: CONGRATS!
+        - language: 30
+          value: "\u041F\u041E\u0417\u0414\u0420\u0410\u0412\u041B\u042F\u0415\u041C!"
+      - key: LETS_GO
+        translations:
+        - language: 10
+          value: LET'S GO
+        - language: 30
+          value: "\u0412\u041F\u0415\u0420\u0415\u0414"
+      - key: OK
+        translations:
+        - language: 10
+          value: OK
+        - language: 30
+          value: "\u041E\u041A"
+      - key: EPILOGUE
+        translations:
+        - language: 10
+          value: TUTORIAL COMPLETE! NOW YOU CAN BUILD YOUR BASE AND UPGRADE CHARACTERISTICS
+        - language: 30
+          value: "\u0422\u0423\u0422\u041E\u0420\u0418\u0410\u041B \u041F\u0420\u041E\u0419\u0414\u0415\u041D!
+            \u0422\u0415\u041F\u0415\u0420\u042C \u0412\u042B \u041C\u041E\u0416\u0415\u0422\u0415
+            \u041E\u0422\u041F\u0420\u0410\u0412\u0418\u0422\u042C\u0421\u042F \u0412
+            \u0421\u0412\u041E\u0411\u041E\u0414\u041D\u041E\u0415 \u041F\u041B\u0410\u0412\u0410\u041D\u0418\u0415"

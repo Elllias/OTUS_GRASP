@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b07f6f197fa4d90a13f85c5272b84a8, type: 3}
+  m_Name: SpeedUpgrade
+  m_EditorClassIdentifier: 
+  id: speed
+  maxLevel: 20
+  metadata:
+    localizedTitle: HeroUpgrades|SPEED
+    icon: {fileID: 21300000, guid: 5a4c04a46df484f73a29d8fb5f935cfa, type: 3}
+  initialStats:
+    level: 1
+  priceTable:
+    basePrice: 10
+    levels: 00000000140000001e00000028000000320000003c00000046000000500000005a000000640000006e00000078000000820000008c00000096000000a0000000aa000000b4000000be000000c8000000
+  speedTable:
+    startSpeed: 6
+    endSpeed: 9
+    speedStep: 0.16
+    table:
+    - 6
+    - 6.16
+    - 6.32
+    - 6.48
+    - 6.64
+    - 6.8
+    - 6.96
+    - 7.12
+    - 7.28
+    - 7.44
+    - 7.6
+    - 7.76
+    - 7.92
+    - 8.08
+    - 8.24
+    - 8.4
+    - 8.56
+    - 8.72
+    - 8.88
+    - 9

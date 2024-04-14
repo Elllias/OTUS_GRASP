@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f098da8b9d64e79ab06e5f61edecc9a, type: 3}
+  m_Name: HitPointsUpgrade
+  m_EditorClassIdentifier: 
+  id: hit_points
+  maxLevel: 20
+  metadata:
+    localizedTitle: HeroUpgrades|HIT_POINTS
+    icon: {fileID: 21300000, guid: 8ed23711e192845a29b68b1b20c810aa, type: 3}
+  initialStats:
+    level: 1
+  priceTable:
+    basePrice: 10
+    levels: 00000000140000001e00000028000000320000003c00000046000000500000005a000000640000006e00000078000000820000008c00000096000000a0000000aa000000b4000000be000000c8000000
+  hitPointsTable:
+    startHitPoints: 10
+    hitPointsStep: 10
+    levels: 0a000000140000001e00000028000000320000003c00000046000000500000005a000000640000006e00000078000000820000008c00000096000000a0000000aa000000b4000000be000000c8000000

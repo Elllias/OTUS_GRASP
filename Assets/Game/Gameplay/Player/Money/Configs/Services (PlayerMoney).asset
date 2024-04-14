@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f62eb6a3254f4a952544068035af20, type: 3}
+  m_Name: Services (PlayerMoney)
+  m_EditorClassIdentifier: 
+  editorMode: 1
+  releaseScripts:
+  - {fileID: 11500000, guid: e504642890774d46adc01d9d8fc07f97, type: 3}
+  - {fileID: 11500000, guid: e504642890774d46adc01d9d8fc07f97, type: 3}
+  editorScripts:
+  - {fileID: 11500000, guid: 3c1bbdfdb6f04a6da70824abb415cd75, type: 3}
+  - {fileID: 11500000, guid: e504642890774d46adc01d9d8fc07f97, type: 3}
+  releaseClassNames:
+  - Game.Gameplay.Player.MoneyMediator
+  - Game.Gameplay.Player.MoneyMediator

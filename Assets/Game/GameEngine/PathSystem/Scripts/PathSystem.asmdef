@@ -1,0 +1,16 @@
+{
+    "name": "PathSystem",
+    "rootNamespace": "",
+    "references": [
+        "GUID:bbdd981ef41d34d43bc77e611bfd6bd0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

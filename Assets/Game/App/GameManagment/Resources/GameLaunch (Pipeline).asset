@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf53119b3c3a4c44b513d52a1199a1a8, type: 3}
+  m_Name: GameLaunch (Pipeline)
+  m_EditorClassIdentifier: 
+  tasks:
+  - script: {fileID: 11500000, guid: fdec4862bad74363909105cf4e9519a0, type: 3}
+    className: Game.App.GameTask_LoadScene
+  - script: {fileID: 11500000, guid: fc1f641489e84b2f9d7af3b43fc0a2f0, type: 3}
+    className: Game.App.GameTask_ConstructGame
+  - script: {fileID: 11500000, guid: d754ddf9a4694df6a8a470e8cef5d226, type: 3}
+    className: Game.App.LoadingTask_InstallTutorial
+  - script: {fileID: 11500000, guid: 247a68aa8dc045e998552861cac953a6, type: 3}
+    className: Game.App.GameTask_SetupData
+  - script: {fileID: 11500000, guid: 6bf853f9ea7f45d597055bb74bdc5807, type: 3}
+    className: Game.App.GameTask_InitGame
+  - script: {fileID: 11500000, guid: e0869c285d5f40d9bf78e8cc4cd8c577, type: 3}
+    className: Game.App.GameTask_ReadyGame
+  - script: {fileID: 11500000, guid: 3cb545dbad7c4133b4eb24329ce3bf88, type: 3}
+    className: Game.App.LoadingTask_StartRealtimeClock
+  - script: {fileID: 11500000, guid: 89946aa344824739bf9962a60141b63f, type: 3}
+    className: Game.App.GameTask_StartGame

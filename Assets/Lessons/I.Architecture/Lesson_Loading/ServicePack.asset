@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f62eb6a3254f4a952544068035af20, type: 3}
+  m_Name: ServicePack
+  m_EditorClassIdentifier: 
+  editorMode: 0
+  releaseScripts:
+  - {fileID: 11500000, guid: b732294694814b91a5278d4f7c6258ab, type: 3}
+  - {fileID: 11500000, guid: 0727ef0f607d449eb55e13e39a6c6e0f, type: 3}
+  - {fileID: 11500000, guid: d908ef3e7d5a4d599d31c4d5dae16ae8, type: 3}
+  - {fileID: 11500000, guid: d6a5647c76414b19999a3ac0d3f5279b, type: 3}
+  - {fileID: 11500000, guid: f6f02c8c9ff74fdeb673aa7798726006, type: 3}
+  editorScripts: []
+  releaseClassNames:
+  - Lessons.Architecture.Loading.GameDataLoader
+  - Purchasing.PurchaseManager
+  - Lessons.Architecture.Loading.PluginsStartable
+  - Lessons.Architecture.Loading.PurchasingStartable
+  - Lessons.Architecture.Loading.AuthSocialStartable

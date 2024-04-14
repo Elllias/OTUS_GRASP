@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212c2ecddc5940f99c4f6c1957d6275e, type: 3}
+  m_Name: PopupCatalog
+  m_EditorClassIdentifier: 
+  popups:
+  - name: 0
+    addressable:
+      m_AssetGUID: 52d93e697f46d476d82f0ac5d2e360d3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - name: 1
+    addressable:
+      m_AssetGUID: c9f79d27b19f94eb29c239fd8a8a3f0a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - name: 2
+    addressable:
+      m_AssetGUID: f977d00edf3e54acf92f2bdb982f36dd
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - name: 3
+    addressable:
+      m_AssetGUID: 3a148360ff0324d149a8141687e071a4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - name: 4
+    addressable:
+      m_AssetGUID: eb608d1c99f36454994d6f05469eec3b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - name: 5
+    addressable:
+      m_AssetGUID: ab2362ad1be69483eaec1524c8b32128
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - name: 6
+    addressable:
+      m_AssetGUID: d22926889cb244f6d874d60ed0282a7f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - name: 7
+    addressable:
+      m_AssetGUID: cf276f7e2401f4a239aab3a1479b4003
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7ab47baaa447dcb757b1c88272f736, type: 3}
+  m_Name: DamageUpgrade
+  m_EditorClassIdentifier: 
+  id: damage
+  maxLevel: 20
+  metadata:
+    localizedTitle: HeroUpgrades|DAMAGE
+    icon: {fileID: 21300000, guid: c3344cce0937e492ea1b5d1c0b0c074a, type: 3}
+  initialStats:
+    level: 1
+  priceTable:
+    basePrice: 10
+    levels: 00000000140000001e00000028000000320000003c00000046000000500000005a000000640000006e00000078000000820000008c00000096000000a0000000aa000000b4000000be000000c8000000
+  damageTable:
+    startDamage: 1
+    damageStep: 1
+    levels: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000120000001300000014000000

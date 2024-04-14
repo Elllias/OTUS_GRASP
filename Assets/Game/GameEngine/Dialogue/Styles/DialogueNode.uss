@@ -1,0 +1,28 @@
+.dialogue_node_choice > .unity-text-field__input{
+    min-width: 240px;
+    max-width: 240px;
+    background-color: #1f1f21;
+}
+
+.dialogue_node_message > .unity-text-field__input {
+    background-color: #1f1f21;
+    border-color: #27292C;
+    border-radius: 4px;
+    min-width: 240px;
+    max-width: 240px;
+    min-height: 80px;
+    padding: 8px;
+}
+
+.dialogue_node_main-container
+{
+    background-color: #1D1D1E;
+}
+
+.dialogue_node_extension-container
+{
+    background-color: #202021;
+    padding: 8px;
+}
+
+

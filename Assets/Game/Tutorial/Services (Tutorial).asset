@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f62eb6a3254f4a952544068035af20, type: 3}
+  m_Name: Services (Tutorial)
+  m_EditorClassIdentifier: 
+  editorMode: 1
+  releaseScripts:
+  - {fileID: 11500000, guid: 7032b9f80b7b419094f2a5d234b90edc, type: 3}
+  - {fileID: 11500000, guid: 0371f5cb6cd3463188acc2464db2370d, type: 3}
+  - {fileID: 11500000, guid: 0673139518b741a49e70e9f50c464ac9, type: 3}
+  - {fileID: 11500000, guid: 4c59e3d27630458c8cea698a101b5d27, type: 3}
+  editorScripts:
+  - {fileID: 11500000, guid: 7032b9f80b7b419094f2a5d234b90edc, type: 3}
+  - {fileID: 11500000, guid: 3268fccdc33b49ca883b7d39746c9542, type: 3}
+  - {fileID: 11500000, guid: 0673139518b741a49e70e9f50c464ac9, type: 3}
+  - {fileID: 11500000, guid: 4c59e3d27630458c8cea698a101b5d27, type: 3}
+  releaseClassNames:
+  - Game.Tutorial.App.TutorialDeployer
+  - Game.Tutorial.App.TutorialMediator
+  - Game.Tutorial.App.TutorialAssetSupplier
+  - Game.Tutorial.App.TutorialAnalyticsTracker

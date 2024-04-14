@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b220a1810a14156a096a2757337afba, type: 3}
+  m_Name: KillEnemy (Hard)
+  m_EditorClassIdentifier: 
+  id: kill_enemy_hard
+  difficulty: 2
+  moneyReward: 500
+  metadata:
+    localizedTitle: Missions|KILL_ENEMY
+    icon: {fileID: 21300000, guid: 05994011d51df4b7c9ca88d16e473af5, type: 3}
+  requiredKills: 5

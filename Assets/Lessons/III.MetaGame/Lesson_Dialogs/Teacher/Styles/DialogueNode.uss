@@ -1,0 +1,22 @@
+/*.node_id > .unity-text-field__input{*/
+/*    min-width: 240px;*/
+/*    max-width: 240px;*/
+/*    background-color: #1f1f21;*/
+/*    padding: 8px;*/
+/*}*/
+
+/*.node_message > .unity-text-field__input */
+/*{  */
+/*    background-color: #282a2d;*/
+/*    border-color: #222326;*/
+/*    border-radius: 4px;*/
+/*    min-width: 240px;*/
+/*    min-height: 80px;*/
+/*    padding: 8px;*/
+/*}*/
+
+/*.node_choice > .unity-text-field__input{*/
+/*    min-width: 240px;*/
+/*    max-width: 240px;*/
+/*    background-color: #1f1f21;*/
+/*}*/

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214ecaf289b44ee3ace76e5ab3da4b6c, type: 3}
+  m_Name: "Step \xABUpgrade Hero\xBB"
+  m_EditorClassIdentifier: 
+  targetUpgrade: {fileID: 11400000, guid: 5fd42349261c44aac8cde05bdfa45559, type: 2}
+  targetLevel: 3
+  title: UPGRADE DAMAGE
+  icon: {fileID: 21300000, guid: c3344cce0937e492ea1b5d1c0b0c074a, type: 3}
