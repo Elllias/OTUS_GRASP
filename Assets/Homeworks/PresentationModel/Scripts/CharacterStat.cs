@@ -4,21 +4,21 @@ using UnityEngine;
 
 namespace Lessons.Architecture.PM
 {
-    public sealed class CharacterStat
+    public sealed class CharacterStat : MonoBehaviour
     {
         public event Action<int> OnValueChanged; 
 
-        [ShowInInspector, ReadOnly]
-        public string Name { get; private set; }
+        [ShowInInspector]
+        public string Name /*{ get; private set; }*/;
 
-        [ShowInInspector, ReadOnly]
-        public int Value { get; private set; }
+        [ShowInInspector]
+        public int Value /*{ get; private set; }*/;
 
         [Button]
         public void ChangeValue(int value)
         {
-            this.Value = value;
-            this.OnValueChanged?.Invoke(value);
+            Value = value;
+            OnValueChanged?.Invoke(value);
         }
     }
 }
