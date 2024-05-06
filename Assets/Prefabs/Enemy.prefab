@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 659620479434099170}
-  _speed: 4
+  _initialSpeed: 4
 --- !u!114 &5568771391735819373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce164c84a74a425f8d2e82764aef9e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isEnabled: 0
   _bulletsController: {fileID: 0}
   _bulletSpawnPoint: {fileID: 3195880656587174614}
   _bulletConfig: {fileID: 11400000, guid: f391116a3d6247c4e9fdbab562653224, type: 2}

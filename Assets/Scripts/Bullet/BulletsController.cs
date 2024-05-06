@@ -1,4 +1,5 @@
 using Common;
+using Core;
 using Interface;
 using UnityEngine;
 
@@ -21,6 +22,10 @@ namespace Bullet
         {
             var bullet = _bulletPool.Get(shootPoint, Quaternion.identity);
 
+            GameManager.Instance.AddPauseListener(bullet);
+            GameManager.Instance.AddResumeListener(bullet);
+            GameManager.Instance.AddFinishListener(bullet);
+            
             bullet.Initialize(bulletConfig);
             bullet.SetPosition(shootPoint);
             bullet.SetVelocity((targetPoint - shootPoint).normalized * bulletConfig.Speed);
@@ -36,6 +41,11 @@ namespace Bullet
             }
 
             bullet.OnCollisionEntered -= OnCollisionEntered;
+            
+            GameManager.Instance.RemovePauseListener(bullet);
+            GameManager.Instance.RemoveResumeListener(bullet);
+            GameManager.Instance.RemoveFinishListener(bullet);
+            
             _bulletPool.Release(bullet);
         }
     }

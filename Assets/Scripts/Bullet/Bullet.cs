@@ -1,9 +1,10 @@
 using System;
+using Interface;
 using UnityEngine;
 
 namespace Bullet
 {
-    public sealed class Bullet : MonoBehaviour
+    public sealed class Bullet : MonoBehaviour, IPauseListener, IResumeListener, IFinishListener
     {
         public event Action<Bullet, GameObject> OnCollisionEntered;
 
@@ -12,9 +13,28 @@ namespace Bullet
 
         private int _damage;
 
+        private Vector3 _velocity;
+
         private void OnCollisionEnter2D(Collision2D collision)
         {
             OnCollisionEntered?.Invoke(this, collision.gameObject);
+        }
+        
+        public void OnPause()
+        {
+            _velocity = _rigidbody.velocity;
+            
+            SetVelocity(Vector3.zero);
+        }
+
+        public void OnResume()
+        {
+            SetVelocity(_velocity);
+        }
+        
+        public void OnFinish()
+        {
+            SetVelocity(Vector3.zero);
         }
 
         public void Initialize(BulletConfig bulletConfig)

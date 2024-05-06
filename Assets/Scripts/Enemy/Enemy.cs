@@ -3,12 +3,13 @@ using System.Collections;
 using Bullet;
 using Common;
 using Component;
+using Core;
 using Interface;
 using UnityEngine;
 
 namespace Enemy
 {
-    public class Enemy : MonoBehaviour, IDamageable
+    public class Enemy : MonoBehaviour, IDamageable, IPauseListener, IResumeListener, IFinishListener
     {
         public event Action<Enemy> Killed;
         
@@ -20,6 +21,23 @@ namespace Enemy
 
         private Position _attackPosition;
         private Coroutine _shootingCoroutine;
+
+        private bool _isGameStopped;
+        
+        public void OnPause()
+        {
+            _isGameStopped = true;
+        }
+        
+        public void OnFinish()
+        {
+            _isGameStopped = true;
+        }
+        
+        public void OnResume()
+        {
+            _isGameStopped = false;
+        }
         
         public void Initialize(BulletsController bulletsController)
         {
@@ -27,6 +45,8 @@ namespace Enemy
             _hitPointsComponent.HitPointsGone += OnHitPointsGone;
             
             _hitPointsComponent.Reset();
+
+            AddCycleListeners();
         }
 
         public void SetShootingTarget(Transform target)
@@ -61,6 +81,8 @@ namespace Enemy
         {
             while (enabled)
             {
+                yield return new WaitWhile(()=>_isGameStopped);
+                
                 _shootingComponent.Shoot();
                 yield return new WaitForSeconds(_cooldownTime);
             }
@@ -73,8 +95,28 @@ namespace Enemy
             
             if (_shootingCoroutine != null) 
                 StopCoroutine(_shootingCoroutine);
+
+            RemoveCycleListeners();
             
             Killed?.Invoke(this);
+        }
+        
+        private void AddCycleListeners()
+        {
+            GameManager.Instance.AddStartListener(_hitPointsComponent);
+            
+            GameManager.Instance.AddPauseListener(_moveComponent);
+            GameManager.Instance.AddResumeListener(_moveComponent);
+            GameManager.Instance.AddFinishListener(_moveComponent);
+        }
+        
+        private void RemoveCycleListeners()
+        {
+            GameManager.Instance.RemoveStartListener(_hitPointsComponent);
+            
+            GameManager.Instance.RemovePauseListener(_moveComponent);
+            GameManager.Instance.RemoveResumeListener(_moveComponent);
+            GameManager.Instance.RemoveFinishListener(_moveComponent);
         }
     }
 }
