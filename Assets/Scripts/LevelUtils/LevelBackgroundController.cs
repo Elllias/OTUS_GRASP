@@ -1,19 +1,48 @@
-using System;
+﻿using Core;
 using Interface;
 using UnityEngine;
 using VContainer.Unity;
 
 namespace LevelUtils
 {
-    public class LevelBackgroundController : MonoBehaviour, IStartListener, IPauseListener, IResumeListener, IFinishListener, ITickable
+    public class LevelBackgroundController : IStartListener, IPauseListener, IResumeListener, IFinishListener
     {
-        [SerializeField] private float _startPositionY;
-        [SerializeField] private float _endPositionY;
-        [SerializeField] private float _movingSpeedY;
-        
+        private readonly Transform _backgroundTransform;
+        private float _startPositionY;
+        private float _endPositionY;
+        private float _movingSpeedY;
+        private readonly GameManager _gameManager;
+
         private Vector3 _movingVector;
         private Vector3 _startingVector;
 
+        public LevelBackgroundController(
+            Transform backgroundTransform,
+            float startPositionY,
+            float endPositionY,
+            float movingSpeedY,
+            GameManager gameManager)
+        {
+            _backgroundTransform = backgroundTransform;
+            _startPositionY = startPositionY;
+            _endPositionY = endPositionY;
+            _movingSpeedY = movingSpeedY;
+            _gameManager = gameManager;
+            
+            _gameManager.AddStartListener(this);
+            _gameManager.AddPauseListener(this);
+            _gameManager.AddFinishListener(this);
+            _gameManager.AddResumeListener(this);
+        }
+
+        ~LevelBackgroundController()
+        {
+            _gameManager.RemoveStartListener(this);
+            _gameManager.RemovePauseListener(this);
+            _gameManager.RemoveFinishListener(this);
+            _gameManager.RemoveResumeListener(this);
+        }
+        
         public void OnStart()
         {
             OnResume();
@@ -38,12 +67,12 @@ namespace LevelUtils
         
         public void Tick()
         {
-            if (transform.position.y <= _endPositionY)
+            if (_backgroundTransform.position.y <= _endPositionY)
             {
-                transform.position = _startingVector;
+                _backgroundTransform.position = _startingVector;
             }
 
-            transform.position -= _movingVector;
+            _backgroundTransform.position -= _movingVector;
         }
     }
 }

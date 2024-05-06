@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UI.Base
 {
-    public class TextView : MonoBehaviour
+    public class GameFinishView : MonoBehaviour
     {
         [SerializeField] private TMP_Text _text;
 

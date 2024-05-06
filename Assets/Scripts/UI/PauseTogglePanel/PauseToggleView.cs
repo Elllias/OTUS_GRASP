@@ -8,15 +8,8 @@ namespace UI.PauseTogglePanel
 {
     public class PauseToggleView : MonoBehaviour
     {
-        public event Action ToggleButtonClicked;
-        
         [SerializeField] private Button _toggleButton;
         [SerializeField] private TMP_Text _toggleButtonText;
-        
-        private void Awake()
-        {
-            _toggleButton.onClick.AddListener(OnToggleButtonClicked);
-        }
 
         public void Show()
         {
@@ -32,10 +25,10 @@ namespace UI.PauseTogglePanel
         {
             _toggleButtonText.text = text;
         }
-        
-        private void OnToggleButtonClicked()
+
+        public Button GetButton()
         {
-            ToggleButtonClicked?.Invoke();
+            return _toggleButton;
         }
     }
 }

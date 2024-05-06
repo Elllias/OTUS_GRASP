@@ -3,19 +3,17 @@ using Interface;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Bullet
+namespace Bullets
 {
-    public class BulletsController : MonoBehaviour, IStartable
+    public class BulletsFabric
     {
-        [SerializeField] private Transform _poolContainer;
-        [SerializeField] private Bullet _prefab;
-        [SerializeField] private Transform _worldTransform;
+        private readonly Pool<Bullet> _bulletPool;
 
-        private Pool<Bullet> _bulletPool;
-
-        public void Start()
+        public BulletsFabric(BulletsController bulletsController, Bullet prefab)
         {
-            _bulletPool = new Pool<Bullet>(_prefab, _poolContainer, _worldTransform);
+            _bulletPool = new Pool<Bullet>(prefab, 
+                bulletsController.GetPoolTransform(), 
+                bulletsController.GetWorldTransform());
         }
 
         public void Shoot(Vector2 shootPoint, Vector2 targetPoint, BulletConfig bulletConfig)

@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections;
-using Bullet;
+using Bullets;
 using Common;
 using Component;
+using Component.HitPoints;
+using Component.Move;
+using Component.Shooting;
+using Core;
 using Interface;
 using UnityEngine;
 
@@ -18,20 +22,31 @@ namespace Enemy
 
         [SerializeField] private float _cooldownTime;
 
+        private ShootingController _shootingController;
+        private HitPointsController _hitPointsController;
+        private MoveController _moveController;
+        
         private Position _attackPosition;
         private Coroutine _shootingCoroutine;
         
-        public void Initialize(BulletsController bulletsController)
+        public void Initialize(BulletsController bulletsController, GameManager gameManager)
         {
-            _shootingComponent.SetBulletController(bulletsController);
-            _hitPointsComponent.HitPointsGone += OnHitPointsGone;
+            _shootingComponent.Construct(bulletsController);
+            _hitPointsComponent.Construct(gameManager);
+            _moveComponent.Construct();
+
+            _shootingController = _shootingComponent.GetController();
             
-            _hitPointsComponent.Reset();
+            _hitPointsController = _hitPointsComponent.GetController();
+            _hitPointsController.HitPointsGone += OnHitPointsGone;
+            _hitPointsController.Reset();
+            
+            _moveController = _moveComponent.GetController();
         }
 
         public void SetShootingTarget(Transform target)
         {
-            _shootingComponent.SetTargetPoint(target);
+            _shootingController.SetTargetPoint(target);
         }
         
         public void SmoothlyMoveTo(Position position)
@@ -41,18 +56,18 @@ namespace Enemy
 
             _attackPosition = position;
             
-            _moveComponent.Moved += OnMoved;
-            _moveComponent.SmoothlyMoveTo(position.GetPosition());
+            _moveController.Moved += OnMoved;
+            _moveController.SmoothlyMoveTo(position.GetPosition());
         }
         
         public void TakeDamage(int damage)
         {
-            _hitPointsComponent.TakeDamage(damage);
+            _hitPointsController.TakeDamage(damage);
         }
 
         private void OnMoved()
         {
-            _moveComponent.Moved -= OnMoved;
+            _moveController.Moved -= OnMoved;
             
             _shootingCoroutine = StartCoroutine(ShootingCoroutine());
         }
@@ -61,14 +76,14 @@ namespace Enemy
         {
             while (enabled)
             {
-                _shootingComponent.Shoot();
+                _shootingController.Shoot();
                 yield return new WaitForSeconds(_cooldownTime);
             }
         }
 
         private void OnHitPointsGone()
         {
-            _hitPointsComponent.HitPointsGone -= OnHitPointsGone;
+            _hitPointsController.HitPointsGone -= OnHitPointsGone;
             _attackPosition.Release();
             
             if (_shootingCoroutine != null) 

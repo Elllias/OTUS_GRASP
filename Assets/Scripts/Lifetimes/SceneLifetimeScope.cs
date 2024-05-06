@@ -1,3 +1,5 @@
+using Bullets;
+using Character;
 using Core;
 using Interface;
 using LevelUtils;
@@ -18,7 +20,9 @@ namespace Lifetimes
             builder.Register<InputHandler>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             builder.Register<GameManager>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
 
-            builder.RegisterComponentInHierarchy<LevelBackgroundController>().As<ITickable>();
+            builder.RegisterComponentInHierarchy<LevelBackgroundComponent>().As<ITickable>();
+
+            builder.RegisterComponentInHierarchy<BulletsController>();
         }
     }
 }

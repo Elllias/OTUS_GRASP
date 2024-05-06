@@ -7,27 +7,32 @@ using VContainer;
 
 namespace UI.PauseTogglePanel
 {
-    public class PauseToggleViewController : MonoBehaviour, IStartListener, IFinishListener
+    public class PauseToggleViewController : IStartListener, IFinishListener
     {
         private const string RESUME_TEXT = "Resume";
         private const string PAUSE_TEXT = "Pause";
         
-        [SerializeField] private PauseToggleView _pauseToggleView;
+        private readonly PauseToggleView _pauseToggleView;
+        private readonly GameManager _gameManager;
 
-        private GameManager _gameManager;
-
-        [Inject]
-        private void Construct(GameManager gameManager)
+        public PauseToggleViewController(PauseToggleView pauseToggleView, GameManager gameManager)
         {
+            _pauseToggleView = pauseToggleView;
             _gameManager = gameManager;
-        }
-        
-        private void Awake()
-        {
-            _pauseToggleView.ToggleButtonClicked += OnToggleButtonClicked;
+            
+            _pauseToggleView.GetButton().onClick.AddListener(OnToggleButtonClicked);
             
             _pauseToggleView.Hide();
             _pauseToggleView.SetText(PAUSE_TEXT);
+            
+            _gameManager.AddStartListener(this);
+            _gameManager.AddFinishListener(this);
+        }
+
+        ~PauseToggleViewController()
+        {
+            _gameManager.RemoveStartListener(this);
+            _gameManager.RemoveFinishListener(this);
         }
         
         public void OnStart()

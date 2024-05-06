@@ -6,32 +6,26 @@ using VContainer;
 
 namespace UI.GameStartPanel
 {
-    public class GameStartViewController : MonoBehaviour
+    public class GameStartViewController
     {
         private const int TIMER_DURATION = 3;
 
-        [SerializeField] private GameStartView _gameStartView;
+        private readonly GameStartView _gameStartView;
+        private readonly GameManager _gameManager;
 
-        private GameManager _gameManager;
-
-        [Inject]
-        private void Construct(GameManager gameManager)
+        public GameStartViewController(GameStartView gameStartView, GameManager gameManager)
         {
+            _gameStartView = gameStartView;
             _gameManager = gameManager;
-        }
-        
-        private void Awake()
-        {
-            _gameStartView.StartButtonClicked += OnStartButtonClicked;
             
+            _gameStartView.GetButton().onClick.AddListener(OnStartButtonClicked);
             _gameStartView.Show();
         }
 
         private void OnStartButtonClicked()
         {
             _gameStartView.TurnStartButton(false);
-
-            StartCoroutine(StartGameStartTimer());
+            _gameStartView.StartCoroutine(StartGameStartTimer());
         }
 
         private IEnumerator StartGameStartTimer()

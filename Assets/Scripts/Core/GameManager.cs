@@ -5,33 +5,66 @@ using Character;
 using Enum;
 using Interface;
 using UnityEngine;
+using VContainer;
 using VContainer.Unity;
 using Object = UnityEngine.Object;
 
 namespace Core
 {
-    public class GameManager : IStartable
+    public class GameManager
     {
-        private IStartListener[] _startListeners;
-        private IPauseListener[] _pauseListeners;
-        private IResumeListener[] _resumeListeners;
-        private IFinishListener[] _finishListeners;
+        private readonly List<IStartListener> _startListeners = new();
+        private readonly List<IPauseListener> _pauseListeners = new();
+        private readonly List<IResumeListener> _resumeListeners = new();
+        private readonly List<IFinishListener> _finishListeners = new();
         
         private EGameState _gameState;
-        
-        public void Start()
+
+        public void AddPauseListener(IPauseListener pauseListener)
         {
-            _startListeners = Object.FindObjectsOfType<MonoBehaviour>(true).OfType<IStartListener>().ToArray();
-            _pauseListeners = Object.FindObjectsOfType<MonoBehaviour>(true).OfType<IPauseListener>().ToArray();
-            _resumeListeners = Object.FindObjectsOfType<MonoBehaviour>(true).OfType<IResumeListener>().ToArray();
-            _finishListeners = Object.FindObjectsOfType<MonoBehaviour>(true).OfType<IFinishListener>().ToArray();
+            _pauseListeners.Add(pauseListener);
+        }
+        
+        public void AddResumeListener(IResumeListener resumeListener)
+        {
+            _resumeListeners.Add(resumeListener);
+        }
+        
+        public void AddFinishListener(IFinishListener finishListener)
+        {
+            _finishListeners.Add(finishListener);
+        }
+        
+        public void AddStartListener(IStartListener startListener)
+        {
+            _startListeners.Add(startListener);
+        }
+        
+        public void RemovePauseListener(IPauseListener pauseListener)
+        {
+            _pauseListeners.Remove(pauseListener);
+        }
+        
+        public void RemoveResumeListener(IResumeListener resumeListener)
+        {
+            _resumeListeners.Remove(resumeListener);
+        }
+        
+        public void RemoveFinishListener(IFinishListener finishListener)
+        {
+            _finishListeners.Remove(finishListener);
+        }
+        
+        public void RemoveStartListener(IStartListener startListener)
+        {
+            _startListeners.Remove(startListener);
         }
         
         public void StartGame()
         {
             Time.timeScale = 1f;
             
-            for (var i = 0; i < _startListeners.Length; i++)
+            for (var i = 0; i < _startListeners.Count; i++)
             {
                 _startListeners[i].OnStart();
             }
@@ -43,7 +76,7 @@ namespace Core
         {
             Time.timeScale = 0f;
             
-            for (var i = 0; i < _finishListeners.Length; i++)
+            for (var i = 0; i < _finishListeners.Count; i++)
             {
                 _finishListeners[i].OnFinish();
             }
@@ -55,7 +88,7 @@ namespace Core
         {
             Time.timeScale = 0f;
             
-            for (var i = 0; i < _pauseListeners.Length; i++)
+            for (var i = 0; i < _pauseListeners.Count; i++)
             {
                 _pauseListeners[i].OnPause();
             }
@@ -67,7 +100,7 @@ namespace Core
         {
             Time.timeScale = 1f;
             
-            for (var i = 0; i < _resumeListeners.Length; i++)
+            for (var i = 0; i < _resumeListeners.Count; i++)
             {
                 _resumeListeners[i].OnResume();
             }

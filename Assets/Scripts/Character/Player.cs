@@ -1,5 +1,9 @@
 using System;
+using Bullets;
 using Component;
+using Component.HitPoints;
+using Component.Move;
+using Component.Shooting;
 using Core;
 using Interface;
 using UnityEngine;
@@ -7,54 +11,35 @@ using VContainer;
 
 namespace Character
 {
-    public class Player : MonoBehaviour, IDamageable, IPauseListener, IResumeListener, IStartListener, IFinishListener
+    public class Player : MonoBehaviour, IDamageable
     {
         [SerializeField] private HitPointsComponent _hitPointsComponent;
         [SerializeField] private MoveComponent _moveComponent;
         [SerializeField] private ShootingComponent _shootingComponent;
-
+        
         private InputHandler _inputHandler;
         private GameManager _gameManager;
+        private BulletsController _bulletsController;
 
+        private PlayerController _controller;
+        
         [Inject]
-        private void Construct(InputHandler inputHandler, GameManager gameManager)
+        private void Construct(InputHandler inputHandler, GameManager gameManager, BulletsController bulletsController)
         {
             _inputHandler = inputHandler;
             _gameManager = gameManager;
-        }
-
-        public void OnStart()
-        {
-            OnResume();
-        }
-
-        public void OnFinish()
-        {
-            OnPause();
+            _bulletsController = bulletsController;
         }
         
-        public void OnResume()
+        private void Start()
         {
-            _inputHandler.DirectionButtonPressed += _moveComponent.Move;
-            _inputHandler.ShootingButtonPressed += _shootingComponent.Shoot;
-            _hitPointsComponent.HitPointsGone += OnHitPointsGone;
+            _controller = new PlayerController(_hitPointsComponent, _moveComponent, _shootingComponent,
+                _inputHandler, _gameManager, _bulletsController);
         }
-
-        public void OnPause()
-        {
-            _inputHandler.DirectionButtonPressed -= _moveComponent.Move;
-            _inputHandler.ShootingButtonPressed -= _shootingComponent.Shoot;
-            _hitPointsComponent.HitPointsGone -= OnHitPointsGone;
-        }
-
+        
         public void TakeDamage(int damage)
         {
-            _hitPointsComponent.TakeDamage(damage);
-        }
-
-        private void OnHitPointsGone()
-        {
-            _gameManager.FinishGame();
+            _controller.TakeDamage(damage);
         }
     }
 }

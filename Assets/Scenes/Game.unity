@@ -406,11 +406,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 363245575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37bd15923a144ffbab0333dc6e74e641, type: 3}
+  m_Script: {fileID: 11500000, guid: c322678548ae400187cdf310c4917507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _poolContainer: {fileID: 1831741369}
-  _prefab: {fileID: 201757604187811891, guid: 5fe72886874b4e445b06cf777ca4920d, type: 3}
+  _poolTransform: {fileID: 1831741369}
   _worldTransform: {fileID: 1683128698}
 --- !u!1 &481215613
 GameObject:
@@ -722,10 +721,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 562298203}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32dae85f8264479bac19d85418d92392, type: 3}
+  m_Script: {fileID: 11500000, guid: 67ccda3424b945b79ed9d1f3421090b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletController: {fileID: 363245577}
   _targetTransform: {fileID: 4414282821800802396}
   _worldTransform: {fileID: 1683128698}
   _poolTransform: {fileID: 178513672}
@@ -818,8 +816,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 763108122}
-  - component: {fileID: 763108125}
-  - component: {fileID: 763108124}
   - component: {fileID: 763108123}
   m_Layer: 0
   m_Name: '[UI]'
@@ -855,36 +851,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 763108121}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69e38dece418485690c4aea77fefd326, type: 3}
+  m_Script: {fileID: 11500000, guid: f143786eda774285a78504c1e82ef107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pauseToggleView: {fileID: 1962838229}
---- !u!114 &763108124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763108121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32fad3d648bf4caaa3c9509525d1ef87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _gameFinishView: {fileID: 554354734}
   _gameStartView: {fileID: 2082417650}
---- !u!114 &763108125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763108121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8f8f784064c404dbd6109dda53f5481, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _textView: {fileID: 554354734}
+  _pauseTogglePanel: {fileID: 1962838229}
 --- !u!1 &777141177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1027,8 @@ MonoBehaviour:
   autoInjectGameObjects:
   - {fileID: 3926786964592264469}
   - {fileID: 763108121}
+  - {fileID: 562298203}
+  - {fileID: 61006797492197339}
 --- !u!4 &814945983
 Transform:
   m_ObjectHideFlags: 0
@@ -2581,17 +2555,17 @@ PrefabInstance:
         type: 3}
       propertyPath: _bulletSystem
       value: 
-      objectReference: {fileID: 363245577}
+      objectReference: {fileID: 0}
     - target: {fileID: 3926786964091724598, guid: 9699e7e809fd44b2bbf3d30c951ecbd2,
         type: 3}
       propertyPath: _bulletController
       value: 
-      objectReference: {fileID: 363245577}
+      objectReference: {fileID: 0}
     - target: {fileID: 3926786964091724598, guid: 9699e7e809fd44b2bbf3d30c951ecbd2,
         type: 3}
       propertyPath: _bulletsController
       value: 
-      objectReference: {fileID: 363245577}
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3926786964091724597, guid: 9699e7e809fd44b2bbf3d30c951ecbd2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9699e7e809fd44b2bbf3d30c951ecbd2, type: 3}

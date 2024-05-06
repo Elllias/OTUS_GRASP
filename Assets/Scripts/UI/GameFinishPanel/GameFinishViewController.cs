@@ -1,24 +1,36 @@
-﻿using Interface;
+﻿using Core;
+using Interface;
 using UI.Base;
 using UnityEngine;
+using VContainer;
 
 namespace UI.GameFinishPanel
 {
-    public class GameFinishViewController : MonoBehaviour, IFinishListener
+    public class GameFinishViewController : IFinishListener
     {
         private const string FINISH_MESSAGE = "Game Over!";
 
-        [SerializeField] private TextView _textView;
-
-        private void Awake()
+        private readonly GameFinishView _gameFinishView;
+        private readonly GameManager _gameManager;
+        
+        public GameFinishViewController(GameFinishView gameFinishView, GameManager gameManager)
         {
-            _textView.Hide();
+            _gameManager = gameManager;
+            _gameFinishView = gameFinishView;
+            
+            _gameManager.AddFinishListener(this);
+            _gameFinishView.Hide();
+        }
+
+        ~GameFinishViewController()
+        {
+            _gameManager.RemoveFinishListener(this);
         }
     
         public void OnFinish()
         {
-            _textView.SetText(FINISH_MESSAGE);
-            _textView.Show();
+            _gameFinishView.SetText(FINISH_MESSAGE);
+            _gameFinishView.Show();
         }
     }
 }

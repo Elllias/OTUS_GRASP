@@ -1,7 +1,7 @@
 using Enum;
 using UnityEngine;
 
-namespace Bullet
+namespace Bullets
 {
     [CreateAssetMenu(fileName = "BulletConfig", menuName = "Bullets/New BulletConfig")]
     public class BulletConfig : ScriptableObject

@@ -7,15 +7,8 @@ namespace UI.GameStartPanel
 {
     public class GameStartView : MonoBehaviour
     {
-        public event Action StartButtonClicked;
-        
         [SerializeField] private Button _startButton;
         [SerializeField] private TMP_Text _timerText;
-
-        private void Awake()
-        {
-            _startButton.onClick.AddListener(OnClickStartButton);
-        }
 
         public void Show()
         {
@@ -41,10 +34,10 @@ namespace UI.GameStartPanel
         {
             _startButton.gameObject.SetActive(value);
         }
-        
-        private void OnClickStartButton()
+
+        public Button GetButton()
         {
-            StartButtonClicked?.Invoke();
+            return _startButton;
         }
     }
 }

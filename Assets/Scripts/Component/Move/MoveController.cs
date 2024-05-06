@@ -1,18 +1,25 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
-using Vector2 = UnityEngine.Vector2;
 
-namespace Component
+namespace Component.Move
 {
-    public class MoveComponent : MonoBehaviour
+    public class MoveController
     {
         public event Action Moved;
         
-        [SerializeField] private Rigidbody2D _rigidbody;
-        [SerializeField] private float _speed = 0.1f;
+        private readonly MoveComponent _moveComponent;
+        private readonly Rigidbody2D _rigidbody;
+        private readonly float _speed;
 
+        public MoveController(MoveComponent moveComponent, Rigidbody2D rigidbody, float speed)
+        {
+            _moveComponent = moveComponent;
+            _rigidbody = rigidbody;
+            _speed = speed;
+        }
+        
         public void Move(Vector2 velocityVector)
         {
             var nextPosition = _rigidbody.position + velocityVector * _speed;
@@ -21,7 +28,7 @@ namespace Component
 
         public void SmoothlyMoveTo(Vector2 targetPoint)
         {
-            StartCoroutine(SmoothlyMoveToCoroutine(targetPoint));
+            _moveComponent.StartCoroutine(SmoothlyMoveToCoroutine(targetPoint));
         }
 
         private IEnumerator SmoothlyMoveToCoroutine(Vector2 targetPoint)
