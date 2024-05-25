@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Homeworks.PresentationModel.Scripts.UI.View
 {
-    public class UserExpView : MonoBehaviour
+    public class ExpView : MonoBehaviour
     {
         [SerializeField] private Slider _expSlider;
         [SerializeField] private TMP_Text _expText;

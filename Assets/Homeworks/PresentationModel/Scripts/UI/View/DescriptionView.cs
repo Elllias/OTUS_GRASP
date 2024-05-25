@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Homeworks.PresentationModel.Scripts.UI.View
 {
-    public class UserDescriptionView : MonoBehaviour
+    public class DescriptionView : MonoBehaviour
     {
         [SerializeField] private Image _icon;
         [SerializeField] private TMP_Text _description;

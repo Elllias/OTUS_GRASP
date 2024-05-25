@@ -9,10 +9,10 @@ namespace Lessons.Architecture.PM
         public event Action<int> OnValueChanged; 
 
         [ShowInInspector]
-        public string Name /*{ get; private set; }*/;
+        public string Name;
 
         [ShowInInspector]
-        public int Value /*{ get; private set; }*/;
+        public int Value;
 
         [Button]
         public void ChangeValue(int value)

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3177086056696945609}
   - component: {fileID: 3177086056696945608}
   - component: {fileID: 3177086056696945611}
+  - component: {fileID: 292493299108005064}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -149,6 +150,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 75.33334, y: 75.33334}
   m_EdgeRadius: 0
+--- !u!114 &292493299108005064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3177086056696945614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e82c3ed2800494681aeffcfb2348262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 3177086056696945608}
 --- !u!1 &3177086056770397150
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,6 +213,7 @@ GameObject:
   - component: {fileID: 3177086056779457411}
   - component: {fileID: 3177086056779457410}
   - component: {fileID: 3177086056779457421}
+  - component: {fileID: 8592551301083167987}
   m_Layer: 5
   m_Name: LevelUpButton
   m_TagString: Untagged
@@ -336,6 +351,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 244, y: 96.26563}
   m_EdgeRadius: 0
+--- !u!114 &8592551301083167987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3177086056779457408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e82c3ed2800494681aeffcfb2348262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 3177086056779457410}
 --- !u!1 &3177086056912935431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,12 +1360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3d533a97cd83342b270d6adef7f6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _closeButton: {fileID: 3177086056696945608}
-  _levelUpButton: {fileID: 3177086056779457410}
-  _name: {fileID: 3177086057357939962}
-  _descriptionView: {fileID: 3177086057664672926}
-  _expView: {fileID: 3177086057526779429}
-  _characteristicsView: {fileID: 3177086057316687468}
 --- !u!1 &3177086057526779450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,8 +2165,9 @@ GameObject:
   - component: {fileID: 3177086058128726551}
   - component: {fileID: 3177086058128726545}
   - component: {fileID: 3177086058128726544}
+  - component: {fileID: 9081527210901553572}
   m_Layer: 5
-  m_Name: HeaderCanvas
+  m_Name: NameView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2201,6 +2224,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &9081527210901553572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3177086058128726550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e9b8ffa7424578902ee23ca6efba8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 3177086057357939962}
 --- !u!1 &3177086058433384504
 GameObject:
   m_ObjectHideFlags: 0

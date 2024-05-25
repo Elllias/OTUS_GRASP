@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Homeworks.PresentationModel.Scripts.UI.View
 {
-    public class UserCharacteristicsView : MonoBehaviour
+    public class CharacteristicContainerView : MonoBehaviour
     {
         [SerializeField] private CharacteristicView _characteristicViewPrefab;
         [SerializeField] private RectTransform _characteristicParent;
@@ -26,7 +26,7 @@ namespace Homeworks.PresentationModel.Scripts.UI.View
             _characteristicViews.Remove(characteristicView);
         }
 
-        public Transform GetCharacteristicParent()
+        public Transform GetParent()
         {
             return _characteristicParent;
         }
