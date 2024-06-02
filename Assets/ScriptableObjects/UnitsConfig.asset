@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24358d8b103542b5988c408208837f09, type: 3}
+  m_Name: UnitsConfig
+  m_EditorClassIdentifier: 
+  _configs:
+  - Type: Orc_Archer
+    Prefab: {fileID: -6780732715649493285, guid: 37773be3ffa21ce4a89a9ab8b6243a4e,
+      type: 3}
+  - Type: Orc_Catapult
+    Prefab: {fileID: 4917966256930646285, guid: 5818e0abea723b04aa6c9c27b6074da5,
+      type: 3}
+  - Type: Orc_heavy_infantry
+    Prefab: {fileID: 8451790279072705018, guid: 6012b8dcfdc2b314aa83a0b7b9d2d6e2,
+      type: 3}
+  - Type: Orc_HeavyCavalry
+    Prefab: {fileID: 6728763875469708878, guid: 57a84099f8f70be4ea4cc92cbe4c8990,
+      type: 3}
+  - Type: Orc_light_infantry
+    Prefab: {fileID: -2307442729857451404, guid: 9c2c5224d2a555b48b76b8e6813a65ab,
+      type: 3}
+  - Type: Orc_LightCavalry
+    Prefab: {fileID: -8542220791256040496, guid: 986139478c473b243896c3a1ad3a33ac,
+      type: 3}
+  - Type: Orc_MountedShaman
+    Prefab: {fileID: -35759933609886829, guid: 091fdccaeaa7b2241a4c5998b2bfd5ec, type: 3}
+  - Type: Orc_shaman
+    Prefab: {fileID: -6822647825084766476, guid: 0dacbb30143453142a1e140b0eaa3c79,
+      type: 3}
+  - Type: Orc_spearman
+    Prefab: {fileID: -154247976834514717, guid: aff3ad202ea2a2147a1ed43e434ea785,
+      type: 3}
+  - Type: Orc_worker
+    Prefab: {fileID: 8476477346736721402, guid: c36c01199a8619b41bf7ec920897b7f6,
+      type: 3}
+  - Type: WK_Catapult
+    Prefab: {fileID: 6467707349054415413, guid: 6e11dc0269b03fc42bf8720d4403af8e,
+      type: 3}
+  - Type: WK_heavy_cavalry
+    Prefab: {fileID: -4255099011830036389, guid: 2f7fa3b50cb2fd144a777576a449b045,
+      type: 3}
+  - Type: WK_heavy_infantry_A
+    Prefab: {fileID: -3954157579720889981, guid: 75d2bb2df9c62a94ab6c84dda041eb58,
+      type: 3}
+  - Type: WK_heavy_infantry_B
+    Prefab: {fileID: -5202202630811064630, guid: 5a12c360688f0e149892f627a4b63857,
+      type: 3}
+  - Type: WK_light_archer_A
+    Prefab: {fileID: -7196697707103354558, guid: 904f0ca6287137941aea55c21ebcd0f9,
+      type: 3}
+  - Type: WK_light_archer_B
+    Prefab: {fileID: 6587339796164505996, guid: 020b3f4b12d25014b82b80c9c91bcb03,
+      type: 3}
+  - Type: WK_light_cavalry
+    Prefab: {fileID: -4255099011830036389, guid: 2f7fa3b50cb2fd144a777576a449b045,
+      type: 3}
+  - Type: WK_light_infantry_A
+    Prefab: {fileID: -8062525807388303480, guid: 1ff40f11e4e653d47a04071bca77c702,
+      type: 3}
+  - Type: WK_light_infantry_B
+    Prefab: {fileID: 6584907423915659709, guid: ad7f723e4ae60e54b8b0c4258cd957f8,
+      type: 3}
+  - Type: WK_mage_A
+    Prefab: {fileID: -3340881634875164918, guid: cde36512b87097e43aa32cb9cecc4c37,
+      type: 3}
+  - Type: WK_mage_B
+    Prefab: {fileID: 2917844002141649686, guid: c0e0accc1dfc94b4297d8c826994ef85,
+      type: 3}
+  - Type: WK_mounted_mage
+    Prefab: {fileID: -7183052405710147682, guid: c713aeb69d9e2234faca8a8457759be2,
+      type: 3}
+  - Type: WK_mounted_priest
+    Prefab: {fileID: 1716319088422298090, guid: 3e1ad01fa5ca0b74dab5283366078768,
+      type: 3}
+  - Type: WK_priest
+    Prefab: {fileID: 1230667858508629008, guid: b8700dace9261af4ea2e1c1f3e3a91f1,
+      type: 3}
+  - Type: WK_spearman_A
+    Prefab: {fileID: 8553889709589752911, guid: cd7c964661058ec4db55d651fda81cfe,
+      type: 3}
+  - Type: WK_spearman_B
+    Prefab: {fileID: 4451994437447746111, guid: b0fda020461c1654a866e263396364d2,
+      type: 3}
+  - Type: WK_worker
+    Prefab: {fileID: 4032437966975482922, guid: cdbe91a91060b1e4eb4bd0b52d578091,
+      type: 3}

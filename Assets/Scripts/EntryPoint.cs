@@ -1,19 +1,32 @@
 using GameEngine;
+using GameEngine.ScriptableObjects;
+using GameEngine.Systems;
+using SaveSystem.UI;
 using UnityEngine;
 
-//TODO: Удалить этот класс!
-//Развернуть архитектуру на Zenject/VContainer/Custom
 public sealed class EntryPoint : MonoBehaviour
 {
-    [SerializeField]
-    private UnitManager unitManager;
+    [SerializeField] private UnitManager _unitManager;
+    [SerializeField] private ResourceService _resourceService;
+    [SerializeField] private PlayerResources _playerResources;
 
-    [SerializeField]
-    private ResourceService resourceService;
+    [SerializeField] private UnitsConfig _unitsConfig;
+    
+    [SerializeField] private SaveLoaderView _saveLoaderView;
+    
+    private SaveLoaderViewController _saveLoaderViewController;
     
     private void Start()
     {
-        this.unitManager.SetupUnits(FindObjectsOfType<Unit>());
-        this.resourceService.SetResources(FindObjectsOfType<Resource>());
+        _unitManager.SetupUnits(FindObjectsOfType<Unit>());
+        _resourceService.SetResources(FindObjectsOfType<Resource>());
+        
+        _saveLoaderViewController = 
+            new SaveLoaderViewController(
+            _saveLoaderView,
+            _resourceService,
+            _unitManager,
+            _unitsConfig,
+            _playerResources);
     }
 }

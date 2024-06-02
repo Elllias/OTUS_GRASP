@@ -1,4 +1,4 @@
-namespace Homeworks.SaveLoad
+namespace GameEngine.Enums
 {
     public enum ResourceType
     {
