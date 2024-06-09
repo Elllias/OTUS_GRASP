@@ -1,8 +1,8 @@
 namespace SaveSystem.Interfaces
 {
-    internal interface ISaveLoader<in TService>
+    public interface ISaveLoader
     {
-        void Save(TService service);
-        void Load(TService service);
+        void Save(IGameRepository repository);
+        void Load(IGameRepository repository);
     }
 }

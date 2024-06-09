@@ -825,7 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitManager:
-    _container: {fileID: 1263304700}
+    container: {fileID: 1263304700}
   _playerResources: {fileID: 653492623}
   _unitsConfig: {fileID: 11400000, guid: 32ce372298144db4e9bfd93cb7adba5d, type: 2}
   _saveLoaderView: {fileID: 324162691}

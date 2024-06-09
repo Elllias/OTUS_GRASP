@@ -3,74 +3,26 @@ using System.IO;
 using System.Linq;
 using GameEngine;
 using GameEngine.ScriptableObjects;
+using Lessons.Architecture.DI;
 using Newtonsoft.Json;
 using SaveSystem.Data;
 using SaveSystem.Interfaces;
+using SaveSystem.Systems;
 using SaveSystem.Utils;
 using UnityEngine;
 
 namespace SaveSystem
 {
-    internal sealed class UnitsSaveLoader : ISaveLoader<UnitManager>
+    public sealed class UnitsSaveLoader : SaveLoader<UnitManager, UnitContainerData>
     {
-        private const string UNITS_FILE_NAME = "Units.txt";
-        
-        private readonly string _savePath = Application.persistentDataPath;
-        private readonly UnitsConfig _unitsConfig;
-        
-        public UnitsSaveLoader(UnitsConfig config)
-        {
-            _unitsConfig = config;
-        }
-        
-        public void Save(UnitManager service)
-        {
-            var resources = UnitToData(service.GetAllUnits());
-            var json = Encryptor.Encrypt(JsonConvert.SerializeObject(resources));
-            
-            var path = Path.Combine(_savePath, UNITS_FILE_NAME);
-            
-            File.WriteAllText(path, json);
-        }
-
-        public void Load(UnitManager service)
-        {
-            var units = new List<Unit>();
-            var path = Path.Combine(_savePath, UNITS_FILE_NAME);
-            var json = Encryptor.Decrypt(File.ReadAllText(path));
-            
-            var unitsData = JsonConvert.DeserializeObject<IEnumerable<UnitData>>(json);
-
-            var currentUnits = service.GetAllUnits().ToList();
-
-            foreach (var unit in currentUnits)
-            {
-                service.DestroyUnit(unit);
-            }
-            
-            foreach (var unitData in unitsData)
-            {
-                var prefab = _unitsConfig.GetPrefab(unitData.Type);
-                var position = new Vector3(unitData.PositionX, unitData.PositionY, unitData.PositionZ);
-                var rotation = Quaternion.Euler(unitData.RotationX, unitData.RotationY, unitData.RotationZ);
-
-                var unit = service.SpawnUnit(prefab, position, rotation);
-                unit.HitPoints = unitData.HealthPoints;
-
-                units.Add(unit);
-            }
-            
-            service.SetupUnits(units);
-        }
-        
-        private IEnumerable<UnitData> UnitToData(IEnumerable<Unit> units)
+        protected override UnitContainerData ConvertToData(UnitManager service)
         {
             var unitsData = new List<UnitData>();
 
-            foreach (var unit in units)
+            foreach (var unit in service.GetAllUnits())
             {
-                var unitPosition = unit.transform.position;
-                var unitRotation = unit.transform.rotation.eulerAngles;
+                var unitPosition = unit.Position;
+                var unitRotation = unit.Rotation;
                 
                 var data = new UnitData
                 {
@@ -86,8 +38,39 @@ namespace SaveSystem
                 
                 unitsData.Add(data);
             }
+
+            var unitsContainerData = new UnitContainerData
+            {
+                UnitsData = unitsData
+            };
             
-            return unitsData;
+            return unitsContainerData;
+        }
+
+        protected override void SetupData(UnitManager service, UnitContainerData resourceContainerData)
+        {
+            var currentUnits = service.GetAllUnits().ToList();
+            var unitsConfig = ServiceLocator.GetService<UnitsConfig>();
+            var units = new List<Unit>();
+            
+            foreach (var unit in currentUnits)
+            {
+                service.DestroyUnit(unit);
+            }
+            
+            foreach (var unitData in resourceContainerData.UnitsData)
+            {
+                var prefab = unitsConfig.GetPrefab(unitData.Type);
+                var position = new Vector3(unitData.PositionX, unitData.PositionY, unitData.PositionZ);
+                var rotation = Quaternion.Euler(unitData.RotationX, unitData.RotationY, unitData.RotationZ);
+
+                var unit = service.SpawnUnit(prefab, position, rotation);
+                unit.HitPoints = unitData.HealthPoints;
+
+                units.Add(unit);
+            }
+            
+            service.SetupUnits(units);
         }
     }
 }

@@ -5,47 +5,18 @@ using GameEngine;
 using Newtonsoft.Json;
 using SaveSystem.Data;
 using SaveSystem.Interfaces;
+using SaveSystem.Systems;
 using SaveSystem.Utils;
 using UnityEngine;
 
 namespace SaveSystem
 {
-    internal sealed class ResourceSaveLoader : ISaveLoader<ResourceService>
+    public sealed class ResourceSaveLoader : SaveLoader<ResourceService, ResourceContainerData>
     {
-        private const string RESOURCES_FILE_NAME = "Resources.txt";
-
-        private readonly string _savePath = Application.persistentDataPath;
-
-        public void Save(ResourceService service)
-        {
-            var resources = ResourcesToData(service.GetResources());
-            var json = Encryptor.Encrypt(JsonConvert.SerializeObject(resources));
-
-            var path = Path.Combine(_savePath, RESOURCES_FILE_NAME);
-
-            File.WriteAllText(path, json);
-        }
-
-        public void Load(ResourceService service)
-        {
-            var path = Path.Combine(_savePath, RESOURCES_FILE_NAME);
-            var json = Encryptor.Decrypt(File.ReadAllText(path));
-
-            var resourcesData = JsonConvert.DeserializeObject<IEnumerable<ResourceData>>(json);
-            var resources = service.GetResources().ToList();
-
-            foreach (var data in resourcesData)
-            {
-                var resource = resources.FirstOrDefault(res => res.ID == data.Id);
-
-                if (resource != null)
-                    resource.Amount = data.Amount;
-            }
-        }
-
-        private IEnumerable<ResourceData> ResourcesToData(IEnumerable<Resource> resources)
+        protected override ResourceContainerData ConvertToData(ResourceService service)
         {
             var resourcesData = new List<ResourceData>();
+            var resources = service.GetResources();
 
             foreach (var resource in resources)
             {
@@ -58,7 +29,25 @@ namespace SaveSystem
                 resourcesData.Add(data);
             }
 
-            return resourcesData;
+            var resourcesContainerData = new ResourceContainerData
+            {
+                ResourcesData = resourcesData
+            };
+            
+            return resourcesContainerData;
+        }
+
+        protected override void SetupData(ResourceService service, ResourceContainerData resourceContainerData)
+        {
+            var resources = service.GetResources().ToList();
+
+            foreach (var data in resourceContainerData.ResourcesData)
+            {
+                var resource = resources.FirstOrDefault(res => res.ID == data.Id);
+
+                if (resource != null)
+                    resource.Amount = data.Amount;
+            }
         }
     }
 }
