@@ -16,9 +16,11 @@ public sealed class EntryPoint : MonoBehaviour
 
     [SerializeField] private UnitsConfig _unitsConfig;
 
-    [SerializeField] private SaveLoaderView _saveLoaderView;
+    [SerializeField] private ButtonView _saveView;
+    [SerializeField] private ButtonView _loadView;
 
-    private SaveLoaderViewController _saveLoaderViewController;
+    private LoadViewController _loadViewController;
+    private SaveViewController _saveViewController;
 
 
     private void Start()
@@ -35,9 +37,17 @@ public sealed class EntryPoint : MonoBehaviour
         var saveService = new FileSaveService();
         var gameRepository = new GameRepository(saveService);
 
-        _saveLoaderViewController =
-            new SaveLoaderViewController(
-                _saveLoaderView,
+        _loadViewController =
+            new LoadViewController(
+                _loadView,
+                gameRepository,
+                playerSaveLoader,
+                resourceSaveLoader,
+                unitsSaveLoader);
+        
+        _saveViewController =
+            new SaveViewController(
+                _saveView,
                 gameRepository,
                 playerSaveLoader,
                 resourceSaveLoader,
