@@ -86,7 +86,7 @@ namespace Core
                 
                 for (_currentIndex = 0; _currentIndex < _handlers.Count; _currentIndex++)
                 {
-                    Action<T> handler = (Action<T>) _handlers[_currentIndex];
+                    var handler = (Action<T>) _handlers[_currentIndex];
                     handler.Invoke(concreteEvent);
                 }
 

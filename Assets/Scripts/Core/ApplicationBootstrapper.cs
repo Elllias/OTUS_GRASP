@@ -8,17 +8,15 @@ namespace Core
     [UsedImplicitly]
     public class ApplicationBootstrapper : IStartable
     {
-        private readonly GamePipeline _pipeline;
+        private readonly Pipeline _pipeline;
 
-        public ApplicationBootstrapper(GamePipeline pipeline)
+        public ApplicationBootstrapper(Pipeline pipeline)
         {
             _pipeline = pipeline;
         }
         
         public void Start()
         {
-            /*_pipeline.Finished += _pipeline.Run;
-            _pipeline.GameFinished += */
             _pipeline.Run();
         }
     }

@@ -17,6 +17,8 @@ namespace Core
 
         protected void Finish()
         {
+            OnFinish();
+            
             if (_callback != null)
             {
                 var cachedCallback = _callback;
@@ -24,8 +26,6 @@ namespace Core
                 
                 cachedCallback?.Invoke();
             }
-            
-            OnFinish();
         }
         
         protected virtual void OnFinish() {}

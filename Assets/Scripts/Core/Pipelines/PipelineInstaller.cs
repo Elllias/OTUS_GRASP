@@ -9,16 +9,16 @@ using VContainer.Unity;
 namespace Core.Pipelines
 {
     [UsedImplicitly]
-    public class GamePipelineInstaller : IInitializable, IDisposable
+    public class PipelineInstaller : IInitializable, IDisposable
     {
         private readonly EventBus _eventBus;
-        private readonly GamePipeline _pipeline;
+        private readonly Pipeline _pipeline;
         private readonly RedHeroesController _redHeroesController;
         private readonly BlueHeroesController _blueHeroesController;
 
-        public GamePipelineInstaller(
+        public PipelineInstaller(
             EventBus eventBus,
-            GamePipeline pipeline, 
+            Pipeline pipeline, 
             RedHeroesController redHeroesController, 
             BlueHeroesController blueHeroesController)
         {
@@ -30,10 +30,8 @@ namespace Core.Pipelines
 
         void IInitializable.Initialize()
         {
-            _pipeline.AddTask(new StartTask());
             _pipeline.AddTask(new TurnTask(_eventBus, _redHeroesController.GetNextHero, _blueHeroesController));
             _pipeline.AddTask(new TurnTask(_eventBus, _blueHeroesController.GetNextHero, _redHeroesController));
-            _pipeline.AddTask(new FinishTask());
 
             _pipeline.Finished += OnFinished;
         }
@@ -45,6 +43,7 @@ namespace Core.Pipelines
         
         private void OnFinished()
         {
+            // TODO: Реализовать логику окончания игры
             if (!_redHeroesController.HasAliveHero())
             { 
                 Debug.Log("Game is finished!");

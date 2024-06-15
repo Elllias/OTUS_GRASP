@@ -1,4 +1,5 @@
-﻿using Core.Data;
+﻿using Core.Controllers;
+using Core.Data;
 
 namespace Core.Events
 {

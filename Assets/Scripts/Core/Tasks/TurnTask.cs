@@ -1,6 +1,7 @@
 ﻿using System;
 using Core.Controllers;
 using Core.Data;
+using Core.Enum;
 using Core.Events;
 using UI;
 
@@ -27,6 +28,13 @@ namespace Core.Tasks
 
             if (_hero == null)
             {
+                Finish();
+                return;
+            }
+
+            if (_hero.IsFrozen())
+            {
+                _hero.RemoveEffect(EEffect.Frozen);
                 Finish();
                 return;
             }

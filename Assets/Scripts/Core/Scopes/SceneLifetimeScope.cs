@@ -28,8 +28,8 @@ namespace Core.Scopes
 
         private void RegisterPipelineDependencies()
         {
-            _builder.Register<GamePipeline>(Lifetime.Singleton);
-            _builder.RegisterEntryPoint<GamePipelineInstaller>();
+            _builder.Register<Pipeline>(Lifetime.Singleton);
+            _builder.RegisterEntryPoint<PipelineInstaller>();
             
             var redHeroesController = new RedHeroesController(_uiService.GetRedPlayer(), _heroContainer);
             var blueHeroesController = new BlueHeroesController(_uiService.GetBluePlayer(), _heroContainer);

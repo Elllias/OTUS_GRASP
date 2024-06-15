@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Core
 {
-    public abstract class Pipeline
+    public class Pipeline
     {
         public event Action Finished;
 

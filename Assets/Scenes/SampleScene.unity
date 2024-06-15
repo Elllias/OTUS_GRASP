@@ -1168,38 +1168,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroes:
-  - View: {fileID: 1141858330}
-    Statistics:
+  - <Type>k__BackingField: 0
+    <View>k__BackingField: {fileID: 1141858330}
+    _statistics:
       Damage: 3
       Health: 50
-  - View: {fileID: 1991190823}
-    Statistics:
+    _effects: 
+  - <Type>k__BackingField: 1
+    <View>k__BackingField: {fileID: 1991190823}
+    _statistics:
       Damage: 10
       Health: 25
-  - View: {fileID: 1370046841}
-    Statistics:
+    _effects: 
+  - <Type>k__BackingField: 2
+    <View>k__BackingField: {fileID: 1370046841}
+    _statistics:
       Damage: 8
       Health: 32
-  - View: {fileID: 57628786}
-    Statistics:
+    _effects: 
+  - <Type>k__BackingField: 3
+    <View>k__BackingField: {fileID: 57628786}
+    _statistics:
       Damage: 6
       Health: 22
-  - View: {fileID: 202141558}
-    Statistics:
+    _effects: 
+  - <Type>k__BackingField: 4
+    <View>k__BackingField: {fileID: 202141558}
+    _statistics:
       Damage: 30
       Health: 30
-  - View: {fileID: 165874629}
-    Statistics:
+    _effects: 00000000
+  - <Type>k__BackingField: 5
+    <View>k__BackingField: {fileID: 165874629}
+    _statistics:
       Damage: 2
       Health: 50
-  - View: {fileID: 459021464}
-    Statistics:
+    _effects: 
+  - <Type>k__BackingField: 6
+    <View>k__BackingField: {fileID: 459021464}
+    _statistics:
       Damage: 4
       Health: 25
-  - View: {fileID: 1827189792}
-    Statistics:
+    _effects: 
+  - <Type>k__BackingField: 7
+    <View>k__BackingField: {fileID: 1827189792}
+    _statistics:
       Damage: 7
       Health: 35
+    _effects: 
 --- !u!4 &776341121
 Transform:
   m_ObjectHideFlags: 0

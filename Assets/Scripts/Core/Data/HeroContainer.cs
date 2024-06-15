@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Core.Controllers;
 using UI;
 using UnityEngine;
 
@@ -23,33 +23,6 @@ namespace Core.Data
             hero.Construct();
             
             return hero;
-        }
-    }
-
-    [Serializable]
-    public abstract class Hero
-    {
-        public event Action<Hero> Dead;
-
-        public HeroView View;
-        public StatisticsData Statistics;
-
-        public void Construct()
-        {
-            View.SetStats(Statistics.ToString());
-        }
-
-        public void TakeDamage(int damage)
-        {
-            Statistics.Health -= damage;
-
-            if (Statistics.Health <= 0)
-            {
-                Statistics.Health = 0;
-                Dead?.Invoke(this);
-            }
-            
-            View.SetStats(Statistics.ToString());
         }
     }
 }
