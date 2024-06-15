@@ -7,6 +7,7 @@ namespace Core.Tasks
         protected override void OnRun()
         {
             Debug.LogWarning("StartTask");
+            
             Finish();
         }
     }

@@ -420,6 +420,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6f26327dca38144098a004666cd0e3b3, type: 3}
+    - target: {fileID: 383512545093365560, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 383512545093365560, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 738681073}
     - target: {fileID: 383512545514860528, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
       propertyPath: m_Name
       value: HeroView (1)
@@ -539,7 +547,6 @@ GameObject:
   - component: {fileID: 389887958}
   - component: {fileID: 389887960}
   - component: {fileID: 389887961}
-  - component: {fileID: 389887962}
   m_Layer: 5
   m_Name: Player (Red)
   m_TagString: Untagged
@@ -652,27 +659,6 @@ MonoBehaviour:
   - {fileID: 1991190823}
   - {fileID: 1370046841}
   - {fileID: 57628786}
---- !u!223 &389887962
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389887956}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 10
-  m_TargetDisplay: 0
 --- !u!1001 &459021462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1016,6 +1002,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &738681073 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 383512544197517689, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
+  m_PrefabInstance: {fileID: 202141556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &743752121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,7 +1026,6 @@ GameObject:
   - component: {fileID: 743752124}
   - component: {fileID: 743752123}
   - component: {fileID: 743752126}
-  - component: {fileID: 743752127}
   m_Layer: 5
   m_Name: Player (Blue)
   m_TagString: Untagged
@@ -1142,27 +1138,83 @@ MonoBehaviour:
   - {fileID: 165874629}
   - {fileID: 459021464}
   - {fileID: 1827189792}
---- !u!223 &743752127
-Canvas:
+--- !u!1 &776341119
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743752121}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 776341121}
+  - component: {fileID: 776341120}
+  m_Layer: 0
+  m_Name: '[HeroContainer]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &776341120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776341119}
   m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef95d804ee7c44c9827139af7b1615ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroes:
+  - View: {fileID: 1141858330}
+    Statistics:
+      Damage: 3
+      Health: 50
+  - View: {fileID: 1991190823}
+    Statistics:
+      Damage: 10
+      Health: 25
+  - View: {fileID: 1370046841}
+    Statistics:
+      Damage: 8
+      Health: 32
+  - View: {fileID: 57628786}
+    Statistics:
+      Damage: 6
+      Health: 22
+  - View: {fileID: 202141558}
+    Statistics:
+      Damage: 30
+      Health: 30
+  - View: {fileID: 165874629}
+    Statistics:
+      Damage: 2
+      Health: 50
+  - View: {fileID: 459021464}
+    Statistics:
+      Damage: 4
+      Health: 25
+  - View: {fileID: 1827189792}
+    Statistics:
+      Damage: 7
+      Health: 35
+--- !u!4 &776341121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776341119}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.312867, y: -1.1763438, z: -8.435781}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1141858329 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 383512545514860529, guid: 291ab9f483432480c8815884e98cd0a0, type: 3}
@@ -1322,6 +1374,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   _uiService: {fileID: 1854234147}
+  _heroContainer: {fileID: 776341120}
 --- !u!4 &1634570954
 Transform:
   m_ObjectHideFlags: 0

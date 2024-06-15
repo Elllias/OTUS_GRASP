@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace UI
 {
-    [RequireComponent(typeof(Canvas))]
+    // Это мешает работать кнопкам
+    /*[RequireComponent(typeof(Canvas))]*/
     public sealed class HeroListView : MonoBehaviour
     {
         private const int FORWARD_LAYER = 10;
@@ -15,18 +16,22 @@ namespace UI
         [SerializeField]
         private HeroView[] views;
 
-        private Canvas canvas;
+        //private Canvas canvas;
 
-        private void Awake()
+        /*private void Awake()
         {
             this.canvas = this.GetComponent<Canvas>();
-        }
+        }*/
 
         private void OnEnable()
         {
             foreach (var view in this.views)
             {
-                view.OnClicked += () => this.OnHeroClicked?.Invoke(view);
+                view.OnClicked += () =>
+                {
+                    Debug.Log("Click!");
+                    this.OnHeroClicked?.Invoke(view);
+                };
             }
         }
 
@@ -54,9 +59,9 @@ namespace UI
             return this.views[index];
         }
 
-        public void SetActive(bool isActive)
+        /*public void SetActive(bool isActive)
         {
             this.canvas.sortingOrder = isActive ? FORWARD_LAYER : BACK_LAYER;
-        }
+        }*/
     }
 }

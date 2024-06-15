@@ -24,6 +24,8 @@ namespace Core
                 
                 cachedCallback?.Invoke();
             }
+            
+            OnFinish();
         }
         
         protected virtual void OnFinish() {}

@@ -34,7 +34,7 @@ namespace Core
 
         public void RaiseEvent<T>(T evt)
         {
-            Type evtType = evt.GetType();
+            Type evtType = typeof(T);
             Debug.Log(evtType);
 
             if (!_handlers.TryGetValue(evtType, out var handlers))

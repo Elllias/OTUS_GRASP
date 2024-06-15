@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Core.Controllers;
+using Core.Pipelines;
+using UnityEngine;
 
 namespace Core.Tasks
 {
@@ -6,7 +8,6 @@ namespace Core.Tasks
     {
         protected override void OnRun()
         {
-            Debug.LogWarning("FinishTask");
             Finish();
         }
     }
