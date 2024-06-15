@@ -1638,8 +1638,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e57cfa4786445beb2c7fb4010874899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bluePlayer: {fileID: 743752126}
-  redPlayer: {fileID: 389887961}
+  _bluePlayer: {fileID: 0}
+  _redPlayer: {fileID: 0}
 --- !u!1 &1917274683
 GameObject:
   m_ObjectHideFlags: 0
