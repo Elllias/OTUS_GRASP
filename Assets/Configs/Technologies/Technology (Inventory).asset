@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc56a0025d464aa984d8a10c8125c625, type: 3}
+  m_Name: Technology (Inventory)
+  m_EditorClassIdentifier: 
+  <Id>k__BackingField: Inventory
+  <Price>k__BackingField: 200
+  <Level>k__BackingField: 0
+  Dependencies:
+  - Level: 2
+    Technology: {fileID: 11400000, guid: 8ce404816cabd47348fc8dc7422a5d54, type: 2}
+  UpgradeCost: 50
+  UpgradeCostDifference: 100
+  MaxLevel: 3
+  Title: 
+  <Description>k__BackingField: 
+  <Icon>k__BackingField: {fileID: 0}
+  Item: {fileID: 11400000, guid: d1515c1afb1b2433d89ec08efdccdc8d, type: 2}
