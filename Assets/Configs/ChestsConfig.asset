@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0fca6eba70407caee21c7e7ab68600, type: 3}
+  m_Name: ChestsConfig
+  m_EditorClassIdentifier: 
+  ChestsTimeData:
+  - Type: 10
+    OpeningSeconds: 5
+    PossibleRewardsData:
+    - RewardType: 0
+      Quantity: 5
+      HasReference: 0
+      RewardItem: {fileID: 0}
+    - RewardType: 1
+      Quantity: 2
+      HasReference: 0
+      RewardItem: {fileID: 0}
+    - RewardType: 2
+      Quantity: 1
+      HasReference: 0
+      RewardItem: {fileID: 0}
+    - RewardType: 3
+      Quantity: 1
+      HasReference: 1
+      RewardItem: {fileID: 11400000, guid: 30af22672a0bb95458a789729aa18665, type: 2}
+  - Type: 11
+    OpeningSeconds: 10
+    PossibleRewardsData:
+    - RewardType: 2
+      Quantity: 50
+      HasReference: 0
+      RewardItem: {fileID: 0}
+    - RewardType: 3
+      Quantity: 5
+      HasReference: 1
+      RewardItem: {fileID: 11400000, guid: 30af22672a0bb95458a789729aa18665, type: 2}
+  - Type: 12
+    OpeningSeconds: 15
+    PossibleRewardsData:
+    - RewardType: 2
+      Quantity: 150
+      HasReference: 0
+      RewardItem: {fileID: 0}
+    - RewardType: 3
+      Quantity: 20
+      HasReference: 1
+      RewardItem: {fileID: 11400000, guid: 30af22672a0bb95458a789729aa18665, type: 2}

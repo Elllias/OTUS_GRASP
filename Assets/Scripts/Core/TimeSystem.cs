@@ -37,7 +37,12 @@ namespace Core
             UsersTimeDataInitialized?.Invoke(_usersTimeData);
         }
         
-        public void RecordCurrentTime(int userId, TimeType timeType)
+        public void RecordCurrentTime(int id, int type)
+        {
+            RecordTime(id, type, DateTime.Now);
+        }
+
+        public void RecordTime(int id, int type, DateTime time, bool isOverride = false)
         {
             var filePath = Path.Combine(Application.persistentDataPath, TIME_FILE_NAME);
             
@@ -52,9 +57,9 @@ namespace Core
                 {
                     new()
                     {
-                        UserId = userId,
+                        UserId = id,
                         TimesData = new List<TimeData>
-                            { new() { TimeType = timeType, DateTime = DateTime.Now } }
+                            { new() { Type = type, DateTime = time } }
                     }
                 };
                 
@@ -66,20 +71,31 @@ namespace Core
                 return;
             }
 
-            var userTimeData = _usersTimeData.FirstOrDefault(data => data.UserId == userId);
+            var userTimeData = _usersTimeData.FirstOrDefault(data => data.UserId == id);
 
             if (userTimeData == null)
             {
                 userTimeData = new UserTimeData
                 {
-                    UserId = userId,
-                    TimesData = new List<TimeData> { new() { TimeType = timeType, DateTime = DateTime.Now } }
+                    UserId = id,
+                    TimesData = new List<TimeData> { new() { Type = type, DateTime = time } }
                 };
                 _usersTimeData.Add(userTimeData);
             }
             else
             {
-                userTimeData.TimesData.Add(new TimeData { TimeType = timeType, DateTime = DateTime.Now });
+                if (!isOverride)
+                {
+                    userTimeData.TimesData.Add(new TimeData { Type = type, DateTime = time });
+                }
+                else
+                {
+                    var timeData = userTimeData.TimesData.FirstOrDefault(data => data.Type == type);
+
+                    userTimeData.TimesData.Remove(timeData);
+                    timeData = new TimeData { Type = type, DateTime = time };
+                    userTimeData.TimesData.Add(timeData);
+                }
             }
 
             var json = JsonConvert.SerializeObject(_usersTimeData);
@@ -89,25 +105,19 @@ namespace Core
             UsersTimeDataUpdated?.Invoke(_usersTimeData);
         }
 
-        public List<TimeData> GetAllTimeUser(int userId)
+        public TimeData GetLastTimeData(int userId, int type)
         {
-            var filePath = Path.Combine(Application.persistentDataPath, TIME_FILE_NAME);
+            var userTimeData = _usersTimeData.FirstOrDefault(data => data.UserId == userId);
 
-            if (!File.Exists(filePath))
-            {
-                File.Create(filePath);
-                return new List<TimeData>();
-            }
+            if (userTimeData == null)
+                throw new ArgumentException("UserId does not exist.");
+
+            var timeData = userTimeData.TimesData.LastOrDefault(data => data.Type == type);
+
+            if (timeData.Type == 0)
+                throw new ArgumentException($"User doesn't have data with type {type}");
             
-            var usersTimeDataJson = File.ReadAllText(filePath);
-
-            var usersTimeData
-                = JsonConvert.DeserializeObject<List<UserTimeData>>(usersTimeDataJson)
-                  ?? new List<UserTimeData>();
-
-            var userTimeData = usersTimeData.FirstOrDefault(data => data.UserId == userId);
-
-            return userTimeData != null ? userTimeData.TimesData : new List<TimeData>();
+            return timeData;
         }
     }
 }

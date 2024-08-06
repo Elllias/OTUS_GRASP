@@ -2,7 +2,7 @@
 {
     public enum TimeType
     {
-        Connection,
-        Disconnection
+        Connection = 1,
+        Disconnection = 2
     }
 }

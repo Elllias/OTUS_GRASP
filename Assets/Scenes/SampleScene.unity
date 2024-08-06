@@ -790,6 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0dbb8e93efd47cdbfabbe726c66a369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chestsConfig: {fileID: 11400000, guid: a477fa058e57ae94682e8d5dabc6c9cd, type: 2}
   _timeView: {fileID: 1157585691}
 --- !u!4 &1713665289
 Transform:
