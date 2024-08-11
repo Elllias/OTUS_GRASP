@@ -20,12 +20,14 @@ namespace Equipment
 
         public Item GetItem(EquipmentType type)
         {
+            if (!HasItem(type)) return null;
+            
             return _equippedItems[type];
         }
 
         public bool TryGetItem(EquipmentType type, out Item result)
         {
-            if (!_equippedItems.ContainsKey(type))
+            if (!HasItem(type))
             {
                 result = null;
                 return false;
@@ -37,6 +39,8 @@ namespace Equipment
 
         public void RemoveItem(EquipmentType type)
         {
+            if (!HasItem(type)) return;
+            
             OnItemRemoved?.Invoke(_equippedItems[type]);
             
             _equippedItems.Remove(type);
@@ -52,6 +56,8 @@ namespace Equipment
         public void ChangeItem(EquipmentType type, Item item)
         {
             if (!HasItem(type)) return;
+
+            if (_equippedItems[type] == item) return;
             
             _equippedItems[type] = item;
             
@@ -63,7 +69,7 @@ namespace Equipment
             return _equippedItems.ContainsKey(type);
         }
 
-        public Dictionary<EquipmentType, Item> GetItems()
+        public IReadOnlyDictionary<EquipmentType, Item> GetItems()
         {
             return _equippedItems;
         }

@@ -10,23 +10,29 @@ namespace Equipment
 
         #region Inventory
         
-        public List<Item> GetInventoryItems()
+        public IReadOnlyList<Item> GetInventoryItems()
         {
             return _inventory.GetItems();
         }
         
         public void AddItem(Item item)
         {
+            if (item == null || string.IsNullOrEmpty(item.Name)) return;
+            
             _inventory.AddItem(item);
         }
         
         public bool HasItem(string itemName)
         {
+            if (string.IsNullOrEmpty(itemName)) return false;
+            
             return _inventory.HasItem(itemName);
         }
         
         public void RemoveItem(string itemName)
         {
+            if (string.IsNullOrEmpty(itemName)) return;
+            
             _inventory.RemoveItem(itemName);
         }
         
@@ -34,13 +40,15 @@ namespace Equipment
         
         #region Equipment
         
-        public Dictionary<EquipmentType, Item> GetEquipmentItems()
+        public IReadOnlyDictionary<EquipmentType, Item> GetEquipmentItems()
         {
             return _equipment.GetItems();
         }
         
         public void EquipItem(EquipmentType type, Item item)
         {
+            if (item == null || string.IsNullOrEmpty(item.Name)) return;
+            
             if (!_inventory.HasItem(item.Name)) return;
             
             _inventory.RemoveItem(item.Name);
@@ -61,6 +69,8 @@ namespace Equipment
         
         public void ChangeEquippedItem(EquipmentType type, Item item)
         {
+            if (item == null) return;
+            
             if (!_inventory.HasItem(item.Name)) return;
             
             var currentItem = _equipment.GetItem(type);

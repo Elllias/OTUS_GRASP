@@ -16,13 +16,13 @@ namespace Equipment
         }
         
         [Button]
-        public List<Item> GetItems()
+        public IReadOnlyList<Item> GetItems()
         {
             return _playerItemsSystem.GetInventoryItems();
         }
 
         [Button]
-        public Dictionary<EquipmentType, Item> GetEquippedItems()
+        public IReadOnlyDictionary<EquipmentType, Item> GetEquippedItems()
         {
             return _playerItemsSystem.GetEquipmentItems();
         }
