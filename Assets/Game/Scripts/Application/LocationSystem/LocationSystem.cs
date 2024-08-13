@@ -10,7 +10,7 @@ namespace Game.Scripts.Application.LocationSystem
     public class LocationSystem
     {
         private readonly Transform _worldTransform;
-        private readonly Dictionary<string, AsyncOperationHandle<GameObject>> _locations = new();
+        private readonly Dictionary<AssetReference, AsyncOperationHandle<GameObject>> _locations = new();
         
         private LocationSystem(LocationTrigger[] locationTriggers, Transform worldTransform)
         {
@@ -34,17 +34,15 @@ namespace Game.Scripts.Application.LocationSystem
             }
         }
 
-        private async void OnTriggerEntered(int locationIndex)
+        private async void OnTriggerEntered(AssetReference reference)
         {
-            var key = $"Location{locationIndex}";
-
-            var handle = _locations.TryGetValue(key, out var location) 
+            var handle = _locations.TryGetValue(reference, out var location) 
                 ? location 
-                : Addressables.LoadAssetAsync<GameObject>(key);
+                : Addressables.LoadAssetAsync<GameObject>(reference);
 
             await handle.Task;
             
-            _locations.Add(key, handle);
+            _locations.Add(reference, handle);
             
             var locationObject = handle.Result;
             Object.Instantiate(locationObject, _worldTransform);

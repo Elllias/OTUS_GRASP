@@ -16,6 +16,7 @@ namespace SampleGame
         private ApplicationExiter applicationExiter;
         private SceneLoader sceneLoader;
         
+        [Inject]
         public void Construct(ApplicationExiter applicationFinisher, SceneLoader sceneLoader)
         {
             this.sceneLoader = sceneLoader;

@@ -1,17 +1,18 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Game.Scripts.Application.LocationSystem
 {
     public class LocationTrigger : MonoBehaviour
     {
-        public event Action<int> TriggerEntered;
+        public event Action<AssetReference> TriggerEntered;
         
-        [SerializeField] private int _locationIndex;
+        [SerializeField] private AssetReference _reference;
 
         private void OnTriggerEnter(Collider other)
         {
-            TriggerEntered?.Invoke(_locationIndex);
+            TriggerEntered?.Invoke(_reference);
 
             enabled = false;
         }

@@ -7,22 +7,18 @@ namespace Game.Scripts.Application
 {
     public class ApplicationBootstrapper : MonoBehaviour
     {
-        private SceneLoader _sceneLoader;
-        private ApplicationExiter _applicationExiter;
-
         private UiSpawner _uiSpawner;
+        private DiContainer _diContainer;
 
         [Inject]
-        public void Construct(ApplicationExiter applicationFinisher, SceneLoader sceneLoader)
+        public void Construct(DiContainer container)
         {
-            _sceneLoader = sceneLoader;
-            _applicationExiter = applicationFinisher;
+            _diContainer = container;
         }
         
         private async void Awake()
         {
-            _uiSpawner = new UiSpawner();
-            _uiSpawner.Construct(_applicationExiter, _sceneLoader);
+            _uiSpawner = _diContainer.Instantiate<UiSpawner>();
             await _uiSpawner.Initialize();
 
             SceneManager.LoadScene("Menu");

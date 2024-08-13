@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: edd43ddecb294420b81594060b26c0dd, type: 2}
+  - {fileID: 11400000, guid: e492e9172e389954a912d2119baeb1ab, type: 2}
   _monoInstallers: []
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
