@@ -46,23 +46,7 @@ namespace Components
     {
         public int Value;
     }
-
-    [Serializable]
-    public struct SpawnCubeRequest
-    {
-        public MoveDirectionComponent MoveDirectionComponent;
-        public PositionComponent PositionComponent;
-        public PrefabComponent PrefabComponent;
-    }
     
-    [Serializable]
-    public struct FireRequest
-    {
-        public TransformComponent Source;
-        public TransformComponent Target;
-        public PrefabComponent BulletPrefab;
-    }
-
     [Serializable]
     public struct DamageComponent
     {
@@ -76,16 +60,9 @@ namespace Components
     }
 
     [Serializable]
-    public struct EnemyDetectionRequest
+    public struct ViewComponent
     {
-        public Entity Source;
-        public Entity Target;
-    }
-
-    [Serializable]
-    public struct BulletViewComponent
-    {
-        public BulletView Value;
+        public View Value;
     }
 
     [Serializable]
@@ -98,11 +75,5 @@ namespace Components
     public struct LifetimeComponent
     {
         public float Value;
-    }
-
-    [Serializable]
-    public struct DestroyRequest
-    {
-        public int EntityId;
     }
 }

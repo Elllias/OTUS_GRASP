@@ -12,10 +12,13 @@ internal sealed class EcsStartup : MonoBehaviour
     private EcsWorld _events;
     private IEcsSystems _systems;
     private EntityManager _entityManager;
+    private CooldownSystem _cooldownSystem;
 
     private void Awake()
     {
         _entityManager = new EntityManager();
+        _cooldownSystem = new CooldownSystem();
+        
         _world = new EcsWorld();
         _events = new EcsWorld();
         _systems = new EcsSystems(_world);
@@ -24,10 +27,10 @@ internal sealed class EcsStartup : MonoBehaviour
             .Add(new MovementSystem())
             .Add(new FireRequestSystem())
             .Add(new SpawnBulletRequestSystem())
+            .Add(new ViewTriggerSystem())
             .Add(new UnitDetectionSystem())
+            .Add(new HealthChangeRequestSystem())
             .Add(new LifeTimeSystem())
-            
-            // View
             .Add(new TransformViewSystem())
 #if UNITY_EDITOR
             .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
@@ -40,6 +43,9 @@ internal sealed class EcsStartup : MonoBehaviour
     {
         _entityManager.Initialize(_world);
         _systems?.Inject(_entityManager);
+        _systems?.Inject(_cooldownSystem);
+        
+        InitializeView(_systems);
         _systems?.Init();
     }
 
@@ -60,6 +66,17 @@ internal sealed class EcsStartup : MonoBehaviour
         {
             _world.Destroy();
             _world = null;
+        }
+    }
+
+    private void InitializeView(IEcsSystems systems)
+    {
+        var eventWorld = systems.GetWorld(EcsWorldsApi.EVENTS);
+        var views = FindObjectsOfType<View>();
+
+        foreach (var view in views)
+        {
+            view.Initialize(eventWorld);
         }
     }
 }
